@@ -1,0 +1,210 @@
+/* ============================================================
+   СЕКЦИИ. Ритм A/B/C: полноширинный кадр — карточная сетка —
+   акцентная заливка; соседние секции не повторяют тип.
+   ============================================================ */
+
+/* ---------- первый экран ----------
+   Не полноэкранное фото с текстом поверх, а журнальный разворот:
+   типографика слева, вертикальный кадр справа. Исходные снимки
+   телефонные — растянутые во всю ширину они разваливаются. */
+.hero { padding-top:calc(var(--hh) + 24px); }
+@media (min-width:1024px) { .hero { padding-top:calc(var(--hh) + 32px); } }
+
+.hero-grid { display:grid; gap:32px; align-items:center; }
+@media (min-width:1024px) {
+  .hero-grid { grid-template-columns:minmax(0,1fr) 400px; gap:64px; }
+}
+@media (min-width:1280px) {
+  .hero-grid { grid-template-columns:minmax(0,1fr) 440px; gap:88px; }
+}
+
+.hero-eb {
+  margin:0 0 20px;
+  font-size:var(--fs-label); font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--terra);
+}
+.hero h1 em { display:block; font-style:italic; letter-spacing:-.01em; }
+.hero-sub { margin:24px 0 0; font-size:var(--fs-lead); line-height:1.45; }
+.hero-lead { margin:16px 0 0; max-width:54ch; color:var(--ink-2); }
+.hero-cta { margin-top:28px; }
+.hero-cta .btn { width:100%; }
+@media (min-width:640px) { .hero-cta .btn { width:auto; min-width:280px; } }
+
+.hero-ph { aspect-ratio:4/3; }
+@media (min-width:1024px) { .hero-ph { aspect-ratio:826/1221; } }
+.hero-ph img { object-position:50% 22%; }
+@media (min-width:1024px) { .hero-ph img { object-position:50% 30%; } }
+
+.hero-stats { margin-top:clamp(36px, 4.6vw, 56px); padding-top:26px; border-top:1px solid var(--line); }
+
+/* ---------- ведущая ---------- */
+.author-grid { display:grid; gap:32px; }
+@media (min-width:1024px) {
+  .author-grid { grid-template-columns:400px minmax(0,1fr); gap:64px; align-items:start; }
+}
+/* бокс уже по пропорции, чем сам снимок (856x1280) — иначе
+   вертикальный object-position не работает: cover упирается в ширину */
+.author-ph { aspect-ratio:400/540; }
+.author-ph img { object-position:50% 18%; }
+.author-nums { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:28px 0; }
+.author-nums .stat-n { font-size:clamp(30px, 3.6vw, 44px); }
+
+.creds { list-style:none; margin:0 0 28px; padding:0; }
+.creds li { padding:14px 0; border-top:1px solid var(--line-soft); color:var(--ink-2); max-width:var(--w-text); }
+.creds li:last-child { border-bottom:1px solid var(--line-soft); }
+
+/* ---------- слово ведущей ---------- */
+.word-grid { display:grid; gap:32px; }
+@media (min-width:1024px) {
+  .word-grid { grid-template-columns:minmax(0,1fr) 300px; gap:56px; align-items:start; }
+}
+.word-q { margin:0; font-size:clamp(24px, 3.2vw, 38px); line-height:1.24; letter-spacing:-.01em; }
+.word-ph { aspect-ratio:1/1; }
+.word-ph img { object-position:50% 30%; }
+.word-text { max-width:var(--w-text); margin-top:24px; padding-top:22px; border-top:1px solid var(--line); }
+
+/* ---------- школа и опыт: сетка кадров ---------- */
+.proof { display:grid; gap:16px; grid-template-columns:repeat(2,1fr); }
+@media (min-width:1024px) { .proof { grid-template-columns:repeat(4,1fr); } }
+.proof .ph { aspect-ratio:4/5; }
+/* кадры любительские и разной пропорции: без ручного object-position
+   вертикальный бокс режет их по центру и оставляет пол и песок */
+.proof figure:nth-child(1) .ph img { object-position:50% 34%; }
+.proof figure:nth-child(2) .ph img { object-position:50% 46%; }
+.proof figure:nth-child(3) .ph img { object-position:50% 30%; }
+.proof figure:nth-child(4) .ph img { object-position:50% 42%; }
+
+/* ---------- ритм дня ---------- */
+.day { max-width:900px; }
+.slot .slot-t {
+  font-weight:500; font-size:var(--fs-small);
+  color:var(--terra);
+  font-variant-numeric:tabular-nums; letter-spacing:.02em;
+}
+.slot-head { display:grid; gap:2px; }
+@media (min-width:640px) {
+  /* display:contents кладёт время и заголовок в колонки summary */
+  .slot > summary { grid-template-columns:120px minmax(0,1fr) 24px; gap:8px 28px; padding:24px 0; }
+  .slot .slot-head { display:contents; }
+  .slot .acc-body { padding-left:148px; }
+}
+@media (min-width:1024px) {
+  .slot > summary { grid-template-columns:148px minmax(0,1fr) 24px; gap:8px 32px; padding:22px 0; }
+  .slot .acc-body { padding-left:180px; }
+}
+
+/* ---------- приглашённый мастер ---------- */
+.guest { display:grid; gap:28px; }
+.guest-head { order:1; }
+.guest-ph { order:2; aspect-ratio:3/4; }
+.guest-body { order:3; display:flex; flex-direction:column; gap:24px; }
+.guest-body > p, .guest-quote { max-width:var(--w-text); }
+@media (max-width:639px) {
+  /* фото не открывает блок без контекста: сначала имя и роль */
+  .guest-ph { margin-inline:calc(-1 * var(--px)); border-radius:0; }
+}
+.guest-ph img { object-position:50% 22%; }
+@media (min-width:640px) {
+  .guest { grid-template-columns:300px minmax(0,1fr); grid-template-rows:auto 1fr; gap:0 36px; }
+  .guest-ph { grid-area:1 / 1 / 3 / 2; align-self:start; }
+  .guest-head { grid-area:1 / 2 / 2 / 3; }
+  .guest-body { grid-area:2 / 2 / 3 / 3; justify-content:center; padding-top:20px; }
+}
+@media (min-width:1024px) {
+  .guest { grid-template-columns:420px minmax(0,1fr); gap:0 64px; }
+}
+.guest-name { margin:0 0 10px; font-size:clamp(30px, 4vw, 48px); line-height:1.05; }
+.guest-role { margin:0; font-size:var(--fs-lead); color:var(--ink-2); }
+.guest-q { border-top:1px solid var(--line); padding-top:20px; }
+.guest-quote {
+  margin:0 0 12px;
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-size:clamp(20px, 2.4vw, 28px); line-height:1.32;
+}
+.guest-sign {
+  margin:0; font-size:var(--fs-label); font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+
+/* ---------- место ---------- */
+.venue-grid { display:grid; gap:16px; }
+.venue-grid .ph { aspect-ratio:3/2; }
+@media (min-width:640px) {
+  .venue-grid { grid-template-columns:2fr 1fr; grid-template-rows:repeat(2, 180px); }
+  .venue-grid figure:first-child { grid-row:span 2; }
+  .venue-grid .ph { aspect-ratio:auto; height:100%; }
+}
+@media (min-width:1024px) { .venue-grid { grid-template-rows:repeat(2, 205px); } }
+
+.venue-info { display:grid; gap:24px; margin-top:36px; padding-top:32px; border-top:1px solid var(--line); }
+@media (min-width:640px) { .venue-info { grid-template-columns:repeat(3,1fr); gap:32px; } }
+.venue-info h3 {
+  margin-bottom:10px;
+  font-family:'Golos Text', system-ui, sans-serif;
+  font-size:var(--fs-label); font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+.venue-info p { margin:0; font-size:var(--fs-small); }
+
+/* ---------- стоимость ---------- */
+.price-grid { display:grid; gap:32px; align-items:start; }
+@media (min-width:1024px) { .price-grid { grid-template-columns:minmax(0,400px) minmax(0,1fr); gap:64px; } }
+.price-box { padding:32px 28px; background:var(--sand); border-radius:var(--r); }
+.sec--sand .price-box { background:var(--cream); }
+.price-box .btn { width:100%; margin-top:24px; }
+.price {
+  display:block;
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-weight:500; font-size:clamp(46px, 6vw, 68px); line-height:1;
+  letter-spacing:-.02em;
+}
+.price-sub { margin:10px 0 0; font-size:var(--fs-lead); color:var(--ink-2); }
+.price-note {
+  margin:20px 0 0; padding-top:20px;
+  border-top:1px solid var(--line);
+  font-size:var(--fs-small); color:var(--ink-2);
+}
+/* заголовки подсписков в правой колонке нужно разводить сильнее,
+   иначе «входит» и «оплачивается отдельно» читаются одним списком */
+.incl + .stat-l { margin-top:32px; }
+
+.incl { list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.incl li { display:grid; grid-template-columns:18px minmax(0,1fr); gap:12px; font-size:var(--fs-small); }
+.incl li::before { content:'\2014'; color:var(--terra); }
+.incl--no li::before { content:'\00D7'; color:var(--ink-2); }
+
+.steps { list-style:none; counter-reset:s; margin:28px 0 0; padding:0; }
+.steps li {
+  counter-increment:s;
+  display:grid; grid-template-columns:32px minmax(0,1fr); gap:14px;
+  padding:16px 0; border-top:1px solid var(--line-soft);
+  font-size:var(--fs-small);
+}
+.steps li::before {
+  content:counter(s, decimal-leading-zero);
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-size:20px; color:var(--terra); font-variant-numeric:tabular-nums;
+}
+
+/* ---------- заявка ---------- */
+.form-grid { display:grid; gap:40px; align-items:start; }
+@media (min-width:1024px) { .form-grid { grid-template-columns:minmax(0,1fr) 320px; gap:72px; } }
+.lead-form { display:grid; gap:18px; max-width:480px; }
+.contact-card { padding:28px 26px; border:1px solid var(--line-cream); border-radius:var(--r); }
+.contact-card .name { display:block; font-size:19px; font-weight:500; margin-bottom:4px; }
+.contact-card .role { display:block; font-size:var(--fs-small); color:var(--on-deep-2); margin-bottom:16px; }
+.contact-list { display:grid; gap:6px; margin-top:16px; padding-top:16px; border-top:1px solid var(--line-cream); }
+.contact-list a { display:inline-flex; align-items:center; min-height:44px; color:var(--cream); }
+.contact-list a:hover { color:var(--terra-lite); }
+
+/* ---------- футер ---------- */
+.ft {
+  display:flex; flex-wrap:wrap; gap:12px 28px;
+  justify-content:space-between; align-items:center;
+  padding:28px var(--px);
+  border-top:1px solid var(--line);
+  font-size:var(--fs-small); color:var(--ink-2);
+}
+.ft a { display:inline-flex; align-items:center; min-height:44px; color:var(--ink-2); }
+.ft a:hover { color:var(--ink); }
+.ft-brand { font-family:'Cormorant Garamond', Georgia, serif; font-size:18px; color:var(--ink); }

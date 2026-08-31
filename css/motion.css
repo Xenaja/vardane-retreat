@@ -1,0 +1,36 @@
+/* ============================================================
+   ДВИЖЕНИЕ. Одна сигнатурная анимация на страницу: линейка
+   раздела прочерчивается слева направо. Всё остальное —
+   короткие переходы состояний в components.css.
+
+   ⚠️ Скрытого состояния в разметке нет: классы .is-pre вешает JS
+   и только тем блокам, что ниже вьюпорта, и только если вкладка
+   видима, а движение не отключено. Иначе печать, скриншот,
+   фоновая вкладка и поисковые боты видят пустые экраны.
+   ============================================================ */
+
+.rail::before { transition:transform .9s var(--ease); }
+.js-motion .rail.is-pre::before { transform:scaleX(0); }
+
+/* мягкое проявление крупных блоков — 16px и 200ms, без «выезда» */
+.rv { transition:opacity .5s var(--ease), transform .5s var(--ease); }
+.js-motion .rv.is-pre { opacity:0; transform:translateY(16px); }
+
+/* первый экран проявляется при загрузке, а не по скроллу */
+.js-motion .hero-grid { animation:hero-in .7s var(--ease) both; }
+@keyframes hero-in {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after {
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .js-motion .rv.is-pre { opacity:1; transform:none; }
+  .js-motion .rail.is-pre::before { transform:none; }
+  .js-motion .hero-grid { animation:none; }
+}
