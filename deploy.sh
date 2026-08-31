@@ -39,6 +39,11 @@ if [ ! -d .git ]; then
 fi
 
 git add -A
-git commit -m "$MSG"
+# коммитим только если есть что: иначе set -e роняет скрипт до push
+if git diff --cached --quiet; then
+  echo "изменений нет — коммит пропущен"
+else
+  git commit -m "$MSG"
+fi
 git push
 echo "готово: изменения ушли в GitHub Pages"
