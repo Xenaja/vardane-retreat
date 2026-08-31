@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /photos/pool/
+
+Sitemap: https://xenaja.github.io/vardane-retreat/sitemap.xml
