@@ -1,27 +1,14 @@
 /* ============================================================
-   ДВИЖЕНИЕ. Одна сигнатурная анимация на страницу: линейка
-   раздела прочерчивается слева направо. Всё остальное —
-   короткие переходы состояний в components.css.
+   ДВИЖЕНИЕ. Появление блоков — CSS-класс + IntersectionObserver
+   в js/reveal.js.
 
-   ⚠️ Скрытого состояния в разметке нет: классы .is-pre вешает JS
-   и только тем блокам, что ниже вьюпорта, и только если вкладка
-   видима, а движение не отключено. Иначе печать, скриншот,
-   фоновая вкладка и поисковые боты видят пустые экраны.
+   ⚠️ Скрытого состояния в разметке нет: класс вешает скрипт и только
+   тем блокам, что ниже первого экрана. Иначе печать, скриншот,
+   фоновая вкладка и поисковый бот видят пустую страницу — в прототипе
+   это уже ломалось. Плюс в скрипте безусловный таймер-страховка.
    ============================================================ */
-
-.rail::before { transition:transform .9s var(--ease); }
-.js-motion .rail.is-pre::before { transform:scaleX(0); }
-
-/* мягкое проявление крупных блоков — 16px и 200ms, без «выезда» */
-.rv { transition:opacity .5s var(--ease), transform .5s var(--ease); }
-.js-motion .rv.is-pre { opacity:0; transform:translateY(16px); }
-
-/* первый экран проявляется при загрузке, а не по скроллу */
-.js-motion .hero-grid { animation:hero-in .7s var(--ease) both; }
-@keyframes hero-in {
-  from { opacity:0; transform:translateY(12px); }
-  to   { opacity:1; transform:none; }
-}
+.rv { transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.js-motion .rv.is-pre { opacity:0; transform:translateY(18px); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior:auto; }
@@ -31,6 +18,5 @@
     transition-duration:.001ms !important;
   }
   .js-motion .rv.is-pre { opacity:1; transform:none; }
-  .js-motion .rail.is-pre::before { transform:none; }
-  .js-motion .hero-grid { animation:none; }
+  .orb { animation:none; }
 }

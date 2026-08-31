@@ -1,15 +1,23 @@
-/* Текстовая страница (политика, оферта): одна колонка, мера строки
-   по --w-text, без шапки и липких панелей. */
+/* Текстовая страница (политика): одна колонка, мера строки по 62ch,
+   без шапки, липких панелей и декора. */
 .doc {
-  max-width:var(--w-text);
+  max-width:62ch;
   margin-inline:auto;
   padding:48px var(--px) 88px;
 }
-.doc-back { margin-bottom:32px; color:var(--terra); }
-.doc h1 { font-size:clamp(28px, 4vw, 40px); line-height:1.12; margin:0 0 6px; }
+.doc-back { display:inline-flex; align-items:center; min-height:44px; margin-bottom:28px; color:var(--raspberry); font-weight:500; }
+.doc-back:hover { color:var(--coral-dark); }
+.doc h1 {
+  font-size:clamp(28px, 4vw, 40px); line-height:1.14; margin:0 0 8px;
+  text-transform:none; letter-spacing:.01em; color:var(--emerald);
+}
 .doc-upd { margin:0 0 36px; }
-.doc h2 { font-size:var(--fs-h3); margin:32px 0 10px; }
-.doc p, .doc li { color:var(--ink-2); }
+.doc h2 {
+  font-size:22px; line-height:1.3; margin:32px 0 10px;
+  text-transform:none; letter-spacing:0; color:var(--emerald);
+}
+.doc p, .doc li { color:var(--body-2); font-size:var(--fs-body); }
 .doc b { color:var(--ink); font-weight:500; }
 .doc ul { padding-left:22px; margin:0 0 1em; }
 .doc li { margin-bottom:6px; }
+.doc a { border-bottom:1px solid rgba(166,47,85,.4); }

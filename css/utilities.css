@@ -1,16 +1,23 @@
 /* ============================================================
    УТИЛИТЫ. Подключаются последними: правило одного класса
    проигрывает компоненту, если объявлено раньше него.
-   Именно на этом .cue и .is-mt не работали на элементах
-   с классом .stat-l — компоненты подключены после базы.
+   Инлайновых style= в разметке нет — правило проекта.
    ============================================================ */
-.is-mt    { margin-top:40px; }
-.is-mt-s  { margin-top:28px; }
-.is-mb    { margin-bottom:36px; }
-.is-mb-s  { margin-bottom:16px; }
-.is-mt-lg { margin-top:clamp(40px, 5vw, 64px); }
-.is-center { display:flex; justify-content:center; margin-top:36px; }
-.is-center .btn { min-width:280px; }
-.lead--ink { color:var(--ink); }
-.cue { margin:40px 0 20px; }
-.w-narrow { max-width:900px; }
+.is-mt-36 { margin-top:36px; }
+.is-mt-40 { margin-top:40px; }
+
+/* ---------- кадрирование ----------
+   У любительских снимков кроп критичен: без ручного object-position
+   вертикальный бокс режет лица и оставляет пол. */
+.bleed--beach img { object-position:center 60%; }
+.bleed--gong img  { object-position:center 40%; }
+
+.proof figure:nth-child(1) img { object-position:center 34%; }
+.proof figure:nth-child(2) img { object-position:center 50%; }
+.proof figure:nth-child(3) img { object-position:center 30%; }
+.proof figure:nth-child(4) img { object-position:center 45%; }
+.proof figure:nth-child(5) img { object-position:center 22%; }
+
+.venue-photos .ph:nth-child(2) img { object-position:center 50%; }
+.venue-photos .ph:nth-child(3) img { object-position:center 60%; }
+.venue-photos .ph:nth-child(4) img { object-position:center 55%; }

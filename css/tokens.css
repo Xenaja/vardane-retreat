@@ -1,53 +1,91 @@
 /* ============================================================
-   ТОКЕНЫ. Арт-направление — Editorial (журнальный).
-   Палитра светлая и тёплая: сливочная бумага, тёплые чернила,
-   терракота как единственный акцент действия.
+   ТОКЕНЫ — по хэндофу design_handoff_vardane_retreat/README.md.
+   Дизайн утверждён и заморожен: значения менять только по
+   технической необходимости и с записью в DECISIONS.md.
 
-   Контрасты замерены (WCAG, отношение к --cream #F7F2EA):
-     --ink   #2E2A26  → 12.8:1   наборный текст
-     --ink-2 #6E6257  →  5.3:1   второстепенный текст
-     --terra #A94F2E  →  4.9:1   акцент на светлом; на белом 5.5:1
-   На тёмной заливке --deep #33403F:
-     --cream → 9.7:1        --terra-lite #E0A46B → 5.0:1
-   ⚠️ --terra на --deep даёт 2.0:1 — на тёмном берём только --terra-lite.
-   ⚠️ --terra-lite на светлом даёт 1.9:1 — на светлом не применять.
+   Контрасты проверены при приёмке макета (к #FDF6EF, если не сказано иное):
+     raspberry #A62F55  6.21:1   заголовки, номера рельсов
+     coral     #C4685E  3.83:1 к белому — только крупное и маркеры
+     body      #5F574F  6.62:1   абзацы
+     muted     #6B6357  5.09:1 к персику — подписи 14px
+     emerald   #154744 10.41:1 к белому — заголовки карточек
+   На изумрудной заливке #154744:
+     ivory  #FDF6EF 9.72:1 · apricot #F0C3A9 6.49:1 · cream .72 5.45:1
+   ⚠️ Отклонение от макета: прозрачность cream для строки 14px поднята
+   с .6 до .68 — на .6 выходило 4.28:1, ниже нормы.
    ============================================================ */
 :root {
-  /* цвет */
-  --cream:#F7F2EA;
-  --sand:#EDE3D6;
-  --ink:#2E2A26;
-  --ink-2:#6E6257;
-  --ink-3:#5A4F45;   /* подписи 12–13px: 7.1:1 к --cream, --ink-2 даёт только 5.3 */
-  --terra:#A94F2E;
-  --terra-lite:#E0A46B;
-  --deep:#33403F;
+  /* фоны */
+  --ivory:#FDF6EF;
+  --ivory-2:#FBF1E8;
+  --ivory-3:#FBF0E7;
+  --peach:#FAEBE2;
+  --peach-light:#FFF6EF;
+  --card:#FFFFFF;
+  --sun:#FFE6CE;
+  --sea-mist:#E4F0ED;
+  --stone:#F3EFE7;
+  --blush:#F6EDE9;
 
-  --line:rgba(46,42,38,.18);
-  --line-soft:rgba(46,42,38,.10);
-  --line-cream:rgba(247,242,234,.24);
-  --on-deep-2:rgba(247,242,234,.86);
+  /* акценты */
+  --raspberry:#A62F55;
+  --coral:#C4685E;
+  --coral-dark:#A6534A;
+  --emerald:#154744;
+  --emerald-2:#123B3C;
+  --apricot:#F0C3A9;
+  --cream:#F7EBE3;
+  --sea:#3C5A55;
 
-  /* шкала: 88 / 46 / 26 / 21 / 17 / 15 / 13 */
-  --fs-display:clamp(44px, 8.4vw, 88px);
-  --fs-h2:clamp(30px, 4.6vw, 46px);
-  --fs-h3:clamp(20px, 1.8vw, 26px);
-  --fs-lead:clamp(18px, 1.6vw, 21px);
-  --fs-body:16px;
-  --fs-small:15px;
-  --fs-label:12px;
+  /* текст */
+  --ink:#403A34;
+  --body:#514A44;
+  --body-2:#5F574F;
+  --muted:#6B6357;
+  --muted-2:#4A443C;
+  --muted-3:#6E665D;
 
-  /* ритм: два значения вертикальных отступов, внутренние кратны 8 */
-  --py:clamp(48px, 6.4vw, 80px);
-  --py-lg:clamp(64px, 8.4vw, 108px);
-  --px:20px;
+  /* на тёмном */
+  --on-dark:#F6F0E6;
+  --on-dark-90:rgba(247,235,227,.82);
+  --on-dark-80:rgba(247,235,227,.78);
+  --on-dark-75:rgba(247,235,227,.75);
+  --on-dark-72:rgba(247,235,227,.72);
+  --on-dark-70:rgba(247,235,227,.70);
+  --on-dark-68:rgba(247,235,227,.68);  /* было .6 — не проходило по контрасту */
 
+  /* линии и контуры */
+  --line:rgba(21,71,68,.12);
+  --line-2:rgba(21,71,68,.14);
+  --line-head:rgba(21,71,68,.09);
+  --card-border:rgba(166,47,85,.16);
+  --card-border-2:rgba(166,47,85,.18);
+  --line-dark:rgba(247,235,227,.22);
+  --line-input:rgba(247,235,227,.35);
+
+  /* тени */
+  --sh-num:0 18px 34px -28px rgba(21,71,68,.45);
+  --sh-card:0 18px 36px -30px rgba(21,71,68,.5);
+  --sh-card-hover:0 24px 44px -32px rgba(21,71,68,.5);
+  --sh-hero:0 30px 70px -40px rgba(21,71,68,.5);
+  --sh-price:0 30px 60px -40px rgba(21,71,68,.8);
+
+  /* типографика */
+  --fs-h1:clamp(34px, 4.6vw, 64px);
+  --fs-h2:clamp(34px, 4.4vw, 58px);
+  --fs-h2-sm:clamp(32px, 4vw, 52px);
+  --fs-quote:clamp(26px, 2.8vw, 36px);
+  --fs-lead:20px;
+  --fs-body:17px;
+  --fs-small:16px;
+  --fs-label:14px;
+
+  /* сетка и ритм */
   --w-page:1180px;
-  --w-text:62ch;
-  --hh:58px;              /* высота шапки */
-  --r:4px;                /* Editorial: почти без скруглений */
-  --ease:cubic-bezier(.33,1,.68,1);
+  --px:28px;
+  --py:104px;
+  --py-lg:118px;
+  --arc:80px;          /* дуга на стыке секций */
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
-@media (min-width:640px)  { :root { --px:40px;  --hh:64px; --fs-body:17px; --fs-label:13px; } }
-@media (min-width:1024px) { :root { --px:64px;  --hh:72px; } }
-@media (min-width:1280px) { :root { --px:88px; } }
+@media (max-width:720px) { :root { --px:20px; --py:72px; --py-lg:80px; --arc:48px; --fs-lead:19px; } }

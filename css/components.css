@@ -1,267 +1,250 @@
 /* ============================================================
-   КОМПОНЕНТЫ: шапка, навигация, кнопки, карточки, аккордеоны,
-   кадры, форма, липкая полоса действия.
+   КОМПОНЕНТЫ по хэндофу: шапка, кнопки, карточки, цифры,
+   фото-арки, иконки, аккордеон, форма, декоративные окружности.
    ============================================================ */
 
-/* ---------- шапка ----------
-   Страница начинается со светлого экрана, поэтому шапка сразу
-   тёмным текстом по кремовому — без «прозрачной над фото» фазы. */
+/* ---------- шапка ---------- */
 .hd {
-  position:fixed; inset:0 0 auto; z-index:40;
-  height:var(--hh);
-  display:flex; align-items:center; justify-content:space-between;
-  gap:16px;
-  padding-inline:var(--px);
-  background:rgba(247,242,234,.92);
+  position:sticky; top:0; z-index:50;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:12px 24px;
+  padding:14px var(--px);
+  background:rgba(246,240,230,.88);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid transparent;
-  transition:border-color .25s ease;
+  border-bottom:1px solid var(--line-head);
 }
-.hd.is-scrolled { border-bottom-color:var(--line); }
-
 .hd-brand {
-  display:inline-flex; align-items:center; min-height:44px;
   font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:19px; line-height:1; letter-spacing:.01em; color:var(--ink);
+  font-size:20px; letter-spacing:.02em; color:var(--emerald);
   white-space:nowrap;
-}
-.hd-brand span { color:var(--terra); }
-
-.hd-nav { display:none; gap:28px; }
-.hd-nav a {
   display:inline-flex; align-items:center; min-height:44px;
-  font-size:var(--fs-small); color:var(--ink-2);
-  transition:color .2s var(--ease);
 }
-.hd-nav a:hover { color:var(--ink); }
-/* .btn задаёт display:inline-flex тем же весом селектора и объявлен ниже,
-   поэтому прячем кнопку шапки через .hd — иначе она вылезает на телефоне */
-.hd .hd-cta { display:none; }
-@media (min-width:1024px) {
-  .hd-nav { display:flex; }
-  .hd .hd-cta { display:inline-flex; }
+.hd-nav { display:flex; flex-wrap:wrap; gap:8px 26px; }
+.hd-nav a {
+  display:inline-flex; align-items:center; min-height:44px; padding-inline:2px;
+  font-size:var(--fs-label); color:var(--body);
+  transition:color .3s var(--ease);
 }
-
-.burger {
-  display:inline-flex; flex-direction:column; justify-content:center; gap:5px;
-  width:44px; height:44px; margin-right:-10px;
-  padding:0 10px; border:0; background:none; cursor:pointer;
+.hd-nav a:hover { color:var(--raspberry); }
+/* ⚠️ Отклонение от макета (записано в DECISIONS.md): в макете навигация
+   переносится на вторую строку через flex-wrap. На 375px шапка выходила
+   в три строки и 185px высоты — это четверть экрана у липкой шапки.
+   На узких экранах прячем пункты: разделы всё равно идут подряд,
+   а действие есть в кнопке шапки и в липкой полосе снизу. */
+@media (max-width:720px) {
+  .hd-nav { display:none; }
+  .hd { padding:10px var(--px); }
 }
-.burger span {
-  display:block; height:1.5px; background:var(--ink);
-  transition:transform .2s ease;
-}
-.burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(3.25px) rotate(45deg); }
-.burger[aria-expanded="true"] span:nth-child(2) { transform:translateY(-3.25px) rotate(-45deg); }
-@media (min-width:1024px) { .burger { display:none; } }
-
-.nav-panel { display:none; }
-.nav-panel.is-open {
-  display:flex; flex-direction:column;
-  position:fixed; inset:var(--hh) 0 auto; z-index:39;
-  padding:4px var(--px) 20px;
-  background:var(--cream);
-  border-bottom:1px solid var(--line);
-}
-.nav-panel a {
-  color:var(--ink); font-size:17px; padding:15px 0;
-  border-bottom:1px solid var(--line-soft);
-}
-.nav-panel a:last-child { border-bottom:0; color:var(--terra); }
 
 /* ---------- кнопки ---------- */
 .btn {
   display:inline-flex; align-items:center; justify-content:center; text-align:center;
-  min-height:56px; padding:16px 32px;
-  background:var(--terra); color:#fff;
-  border:1px solid var(--terra); border-radius:var(--r);
-  font-weight:500; font-size:17px; line-height:1.2; cursor:pointer;
-  transition:background .2s var(--ease), border-color .2s var(--ease);
+  border-radius:999px; border:1px solid transparent; cursor:pointer;
+  font-weight:500; line-height:1.2;
+  transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
 }
-.btn:hover { background:#8F4326; border-color:#8F4326; color:#fff; }
-.btn:active { background:#7C3A20; border-color:#7C3A20; }
-.btn[disabled] { opacity:.55; cursor:default; }
-
+/* основная — изумрудная, у неё hover коралловый */
+.btn--main {
+  background:var(--emerald); color:var(--ivory);
+  padding:22px 44px; font-size:18px; min-height:56px;
+}
+.btn--main:hover { background:var(--coral); color:var(--ivory); }
+.btn--mid { padding:17px 34px; font-size:16px; min-height:52px; background:var(--emerald); color:var(--ivory); }
+.btn--mid:hover { background:var(--coral); }
+/* на тёмном — абрикосовая */
+.btn--light {
+  background:var(--apricot); color:var(--emerald);
+  padding:17px 34px; font-size:16px; font-weight:600; min-height:52px;
+}
+.btn--light:hover { background:var(--ivory); }
+/* призрак в шапке */
 .btn--ghost {
-  background:none; color:var(--ink); border-color:var(--ink);
-  min-height:48px; padding:12px 26px; font-size:var(--fs-small);
+  border-color:rgba(21,71,68,.28); color:var(--emerald);
+  padding:10px 20px; font-size:var(--fs-label); min-height:44px;
 }
-.btn--ghost:hover { background:var(--ink); color:var(--cream); border-color:var(--ink); }
-.on-deep .btn--ghost { color:var(--cream); border-color:var(--line-cream); }
-.on-deep .btn--ghost:hover { background:var(--cream); color:var(--ink); border-color:var(--cream); }
+.btn--ghost:hover { background:var(--emerald); color:var(--ivory); }
+.btn[disabled] { opacity:.6; cursor:default; }
 
-.link-u {
-  display:inline-block; font-weight:500;
-  border-bottom:1px solid currentColor; padding-bottom:2px;
-  transition:opacity .2s var(--ease);
+/* ---------- карточка-цифра ---------- */
+.num-card {
+  background:var(--card);
+  border:1px solid var(--card-border);
+  box-shadow:var(--sh-num);
+  border-radius:22px;
+  padding:28px 24px;
 }
-.link-u:hover { opacity:.7; }
-
-.cta-note { margin:12px 0 0; font-size:var(--fs-small); color:var(--ink-2); }
-.on-deep .cta-note { color:var(--on-deep-2); }
-
-/* ---------- карточки ---------- */
-.card {
-  padding:24px 22px;
-  background:var(--sand);
-  border-radius:var(--r);
-}
-@media (min-width:1024px) { .card { padding:32px 28px; } }
-.card p { color:var(--ink-2); margin:0; }
-.card h3 { margin:0 0 8px; }
-.sec--sand .card { background:var(--cream); }
-.on-deep .card { background:rgba(247,242,234,.08); }
-.on-deep .card p { color:var(--on-deep-2); }
-
-.card-n {
-  display:block; margin-bottom:14px;
-  font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:30px; line-height:1; color:var(--terra);
-  font-variant-numeric:tabular-nums;
-}
-
-/* строчный список «пункт — описание», без рамок */
-.rows { list-style:none; margin:0; padding:0; }
-.rows li {
-  display:grid; gap:2px;
-  padding:18px 0;
-  border-top:1px solid var(--line-soft);
-}
-.rows li:last-child { border-bottom:1px solid var(--line-soft); }
-.rows b { font-weight:500; }
-.rows span { color:var(--ink-2); max-width:var(--w-text); }
-@media (min-width:640px) {
-  .rows li { grid-template-columns:minmax(0,260px) minmax(0,1fr); gap:24px; }
-}
-.on-deep .rows li { border-color:var(--line-cream); }
-.on-deep .rows span { color:var(--on-deep-2); }
-
-/* ---------- цифры ---------- */
-.stats { display:grid; grid-template-columns:repeat(2,1fr); gap:28px 20px; }
-@media (min-width:640px) { .stats { grid-template-columns:repeat(4,1fr); } }
-.stat-n {
+.num-card b {
   display:block;
   font-family:'Cormorant Garamond', Georgia, serif;
-  font-weight:500;
-  font-size:clamp(38px, 5.6vw, 62px);
-  line-height:1;
-  letter-spacing:-.02em;
+  font-weight:500; font-size:44px; line-height:1; color:var(--emerald);
+  font-variant-numeric:lining-nums tabular-nums;
 }
-.stat-l {
-  display:block; margin-top:10px;
-  font-size:var(--fs-label); font-weight:500;
-  letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink-3);
-}
-.stat-n em { font-style:normal; color:var(--terra); }
-.on-deep .stat-l { color:var(--on-deep-2); }
-.on-deep .stat-n em { color:var(--terra-lite); }
+.nums--sm .num-card b { font-size:40px; }
+.num-card b.is-coral { color:var(--coral); }
+.num-card span { display:block; margin-top:10px; font-size:var(--fs-small); line-height:1.4; color:var(--muted-2); }
 
-/* ---------- аккордеон ----------
-   <details> работает без JS и с клавиатуры, текст всегда в DOM.
-   От 1024px JS раскрывает всё и прячет знак. */
-.acc { border-top:1px solid var(--line-soft); }
-.acc:last-of-type { border-bottom:1px solid var(--line-soft); }
-.acc > summary {
-  display:grid; grid-template-columns:minmax(0,1fr) 24px; gap:16px;
-  align-items:start;
-  padding:18px 0; min-height:44px;
-  list-style:none; cursor:pointer;
+/* ---------- карточка с иконкой ---------- */
+.card {
+  background:var(--card);
+  border:1px solid var(--card-border);
+  box-shadow:var(--sh-card);
+  border-radius:26px;
+  padding:34px 30px;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.acc > summary::-webkit-details-marker { display:none; }
-.acc > summary h3 { margin:0; }
-.acc-sign {
-  justify-self:end; align-self:center;
+.card:hover { transform:translateY(-4px); box-shadow:var(--sh-card-hover); }
+.card .icon { margin-bottom:18px; color:var(--raspberry); }
+.card h3 { margin-bottom:10px; }
+.card p { margin:0; font-size:var(--fs-small); line-height:1.65; color:var(--muted-3); }
+.card--lg h3 { font-size:26px; }
+
+/* карточка «боли»: крупный полупрозрачный номер слева */
+.card--pain {
+  display:flex; gap:24px; align-items:center;
+  border-color:var(--card-border-2);
+  border-radius:26px; padding:32px 30px;
+}
+.card--pain .n {
   font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:24px; line-height:1; color:var(--terra);
+  font-size:64px; line-height:.78; color:var(--raspberry); opacity:.3;
+  font-variant-numeric:lining-nums;
 }
-.acc:not([open]) .acc-sign::before { content:'+'; }
-.acc[open] .acc-sign::before { content:'\2212'; }
-.acc-body { padding:0 0 20px; max-width:var(--w-text); }
-.acc-body p { color:var(--ink-2); margin:0; }
-.on-deep .acc, .on-deep .acc:last-of-type { border-color:var(--line-cream); }
-.on-deep .acc-sign { color:var(--terra-lite); }
-.on-deep .acc-body p { color:var(--on-deep-2); }
+.card--pain p { font-size:var(--fs-body); line-height:1.6; color:var(--ink); }
 
-/* ---------- кадры ----------
-   aspect-ratio + cover: подстановка другого файла не двигает вёрстку. */
-.ph { position:relative; overflow:hidden; background:var(--sand); border-radius:var(--r); }
-.ph img { width:100%; height:100%; object-fit:cover; }
-.ph-cap {
-  margin:10px 0 0;
-  font-size:var(--fs-label); line-height:1.5; color:var(--ink-3);
-}
+/* ---------- иконки ---------- */
+.icon { display:block; width:26px; height:26px; stroke:currentColor; fill:none; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+.icon--sm { width:24px; height:24px; }
+
+/* ---------- фото ---------- */
+.ph { overflow:hidden; border-radius:24px; background:var(--peach); }
+.ph img { width:100%; height:100%; object-fit:cover; display:block; }
+/* арка: скруглённый верх, как в макете */
+.ph--arch { border-radius:260px 260px 28px 28px; box-shadow:var(--sh-hero); }
+.ph--arch-sm { border-radius:190px 190px 24px 24px; }
+.ph-cap { margin:12px 0 0; font-size:var(--fs-label); line-height:1.55; color:var(--muted); }
 figure { margin:0; }
 
-/* полоса-пауза во всю ширину экрана */
-.bleed { position:relative; height:clamp(220px, 32vw, 420px); }
-.bleed .ph { position:absolute; inset:0; border-radius:0; }
-.bleed .scrim {
-  position:absolute; inset:0; z-index:1;
-  background:linear-gradient(to top, rgba(30,28,25,.8) 0%, rgba(30,28,25,.3) 46%, rgba(30,28,25,0) 78%);
+/* полоса-перебивка во всю ширину */
+.bleed { position:relative; margin:0; }
+.bleed img { width:100%; height:min(72vh,620px); object-fit:cover; display:block; }
+.bleed--sm img { height:min(68vh,560px); }
+.bleed::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(12,28,25,.72), rgba(12,28,25,.18) 52%, transparent);
 }
 .bleed figcaption {
-  position:absolute; inset:auto 0 0; z-index:2;
-  margin:0; padding:0 var(--px) clamp(22px, 3vw, 40px);
-  color:var(--cream);
+  position:absolute; left:0; right:0; bottom:0; z-index:1;
+  padding:0 var(--px) clamp(24px,4vw,48px);
 }
-.bleed figcaption > * { max-width:var(--w-page); margin-inline:auto; }
-.bleed-h {
-  font-family:'Cormorant Garamond', Georgia, serif;
-  font-weight:500;
-  font-size:clamp(26px, 3.6vw, 42px); line-height:1.1; margin:0 0 6px;
-  color:var(--cream);
+.bleed figcaption > div { max-width:var(--w-page); margin-inline:auto; }
+.bleed h2, .bleed .bleed-h {
+  font-family:'Cormorant Garamond', Georgia, serif; font-weight:500;
+  font-size:clamp(28px,3.4vw,44px); line-height:1.1; margin:0 0 8px;
+  color:var(--on-dark); text-transform:none; letter-spacing:0;
 }
-.bleed-p { margin:0; max-width:52ch; color:rgba(247,242,234,.9); font-size:var(--fs-small); }
+.bleed p { margin:0; font-size:var(--fs-body); color:rgba(246,240,230,.82); max-width:60ch; }
+
+/* ---------- декоративные окружности ---------- */
+.orb {
+  position:absolute; border-radius:50%; border:1px solid currentColor;
+  pointer-events:none; opacity:.5;
+  animation:breathe 11s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { transform:scale(1);    opacity:.5; }
+  50%     { transform:scale(1.06); opacity:.85; }
+}
+
+/* ---------- список с маркерами ---------- */
+.dots { list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+.dots li { display:grid; grid-template-columns:5px minmax(0,1fr); gap:16px; align-items:baseline; font-size:var(--fs-body); color:var(--ink); }
+.dots li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--coral); transform:translateY(-3px); }
+
+.marks { list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.marks li { display:grid; grid-template-columns:18px minmax(0,1fr); gap:14px; font-size:var(--fs-body); line-height:1.6; color:var(--ink); }
+.marks li::before { content:'\2733'; color:var(--coral); font-size:13px; line-height:1.7; }
+.marks--minus li::before { content:'\2014'; color:var(--coral); font-size:15px; }
+.marks--minus li { color:var(--body-2); }
+
+.steps { list-style:none; counter-reset:s; margin:0; padding:0; display:grid; gap:16px; }
+.steps li { counter-increment:s; display:grid; grid-template-columns:28px minmax(0,1fr); gap:14px; font-size:var(--fs-body); line-height:1.6; color:var(--ink); }
+.steps li::before {
+  /* без ведущего нуля: в Cormorant на кегле 22px ноль читается как скобка,
+     «01» превращается в «()1». В крупных номерах карточек этого нет */
+  content:counter(s) '.';
+  font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; color:var(--coral);
+  font-variant-numeric:lining-nums tabular-nums;
+}
+
+/* ---------- аккордеон FAQ ---------- */
+.acc { border-bottom:1px solid var(--line-2); }
+.acc > summary {
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  padding:24px 0; cursor:pointer; list-style:none;
+  font-size:20px; font-weight:500; color:var(--emerald);
+}
+.acc > summary::-webkit-details-marker { display:none; }
+.acc .sign {
+  flex:0 0 auto; font-size:22px; line-height:1; color:var(--coral);
+  transition:transform .3s var(--ease);
+}
+.acc[open] .sign { transform:rotate(45deg); }
+.acc p { margin:0 0 26px; font-size:var(--fs-body); line-height:1.7; color:var(--body-2); }
 
 /* ---------- форма ---------- */
-.field { display:grid; gap:6px; }
-.field label {
-  font-size:var(--fs-label); font-weight:500;
-  letter-spacing:.1em; text-transform:uppercase; color:var(--on-deep-2);
-}
+.field { display:grid; gap:8px; margin-bottom:26px; }
+.field label { font-size:var(--fs-label); letter-spacing:.06em; color:var(--on-dark-70); }
 .field input[type=text] {
   width:100%;
-  /* 16px минимум: на меньшем iOS зумит страницу при фокусе */
-  font-size:16px;
-  color:var(--cream); background:transparent;
-  border:1px solid var(--line-cream); border-radius:var(--r);
-  padding:16px 18px; min-height:56px;
-  transition:border-color .18s ease;
+  /* 16px — минимум, иначе iOS зумит страницу при фокусе; в макете 18px */
+  font-size:18px;
+  color:var(--on-dark);
+  background:transparent; border:0;
+  border-bottom:1px solid var(--line-input);
+  border-radius:0;
+  padding:12px 2px; min-height:52px;
+  transition:border-color .3s var(--ease);
 }
-.field input::placeholder { color:rgba(247,242,234,.5); }
-.field input:focus { outline:none; border-color:var(--terra-lite); }
-.field input[aria-invalid="true"] { border-color:var(--terra-lite); }
-.field-err { margin:0; font-size:var(--fs-small); color:var(--terra-lite); }
+.field input::placeholder { color:rgba(247,235,227,.45); }
+.field input:focus { outline:none; border-bottom-color:var(--apricot); }
+.field input[aria-invalid="true"] { border-bottom-color:var(--coral); }
+.field-err { margin:0; font-size:var(--fs-label); color:var(--apricot); }
 
-.consent { display:grid; grid-template-columns:24px minmax(0,1fr); gap:12px; align-items:center; min-height:44px; }
-.consent input { width:24px; height:24px; margin:0; accent-color:var(--terra-lite); }
-.consent label {
-  font-size:var(--fs-small); line-height:1.5; color:var(--on-deep-2);
-  text-transform:none; letter-spacing:0; font-weight:400;
-}
-.consent a { color:var(--cream); border-bottom:1px solid var(--line-cream); }
+.consent { display:grid; grid-template-columns:24px minmax(0,1fr); gap:14px; align-items:center; min-height:44px; margin-bottom:26px; }
+.consent input { width:24px; height:24px; margin:0; accent-color:var(--apricot); }
+.consent label { font-size:var(--fs-small); line-height:1.55; color:var(--on-dark-75); }
+.consent a { color:var(--apricot); border-bottom:1px solid rgba(240,195,169,.5); }
 
-.form-status { margin:0; font-size:var(--fs-small); line-height:1.55; color:var(--cream); }
-.form-status.is-err { color:var(--terra-lite); }
+.form-status { margin:16px 0 0; min-height:22px; font-size:var(--fs-small); line-height:1.6; color:var(--apricot); }
 .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
-/* ---------- липкая полоса действия ---------- */
+/* ---------- карточка контактов ---------- */
+.contact {
+  border:1px solid var(--line-dark);
+  border-radius:28px;
+  padding:36px 32px;
+}
+.contact .name { display:block; font-family:'Cormorant Garamond', Georgia, serif; font-size:28px; color:var(--on-dark); margin-bottom:10px; }
+.contact p { margin:0 0 6px; font-size:var(--fs-small); line-height:1.6; color:var(--on-dark-75); }
+.contact .tel { display:inline-flex; align-items:center; min-height:44px; margin-top:14px; font-size:20px; color:var(--apricot); }
+.contact .mail { display:inline-flex; align-items:center; min-height:44px; font-size:var(--fs-body); color:var(--apricot); }
+.contact .tel:hover, .contact .mail:hover { color:var(--ivory); }
+
+/* ---------- липкая полоса действия (телефон) ---------- */
 .bar {
-  position:fixed; inset:auto 0 0; z-index:35;
+  position:fixed; inset:auto 0 0; z-index:45;
   display:none; grid-template-columns:minmax(0,1fr) auto;
-  gap:12px; align-items:center;
+  gap:14px; align-items:center;
   padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-  background:rgba(51,64,63,.97);
+  background:rgba(21,71,68,.97);
   transform:translateY(110%);
-  transition:transform .2s ease;
+  transition:transform .3s var(--ease);
 }
 .bar.is-shown { transform:none; }
-.bar p { margin:0; font-size:12px; line-height:1.35; color:var(--on-deep-2); }
-.bar b { display:block; color:var(--cream); font-weight:500; font-size:14px; white-space:nowrap; }
-@media (min-width:400px) { .bar p { font-size:13px; } .bar b { font-size:15px; } }
-.bar .btn { min-height:44px; padding:11px 20px; font-size:var(--fs-small); }
+.bar p { margin:0; font-size:12px; line-height:1.35; color:var(--on-dark-70); }
+.bar b { display:block; font-size:14px; font-weight:500; color:var(--on-dark); white-space:nowrap; }
+.bar .btn { padding:12px 22px; font-size:var(--fs-label); min-height:44px; }
 @media (max-width:1023px) {
   .bar { display:grid; }
-  body { padding-bottom:76px; }
+  body { padding-bottom:78px; }
 }

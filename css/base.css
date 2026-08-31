@@ -1,24 +1,25 @@
 /* ============================================================
-   БАЗА: сброс, типографика, утилиты раскладки.
-   Гарнитуры: Cormorant Garamond (заголовки, крупные цифры, цитаты)
-   и Golos Text (текст и UI). Больше двух не вводить.
+   БАЗА: сброс, типографика, рельсы разделов, утилиты раскладки.
+   Гарнитуры по хэндофу: Cormorant Garamond (дисплей, цифры, цитаты)
+   и Golos Text (текст и интерфейс).
    ============================================================ */
 *, *::before, *::after { box-sizing:border-box; }
 
 html {
+  overflow-x:clip;
   -webkit-text-size-adjust:100%;
   scroll-behavior:smooth;
+  scroll-padding-top:96px;   /* липкая шапка не должна накрывать якорь */
 }
 
 body {
   margin:0;
-  background:var(--cream);
-  color:var(--ink);
+  background:var(--ivory);
+  color:var(--body-2);
   overflow-x:hidden;
   font-family:'Golos Text', system-ui, -apple-system, sans-serif;
-  font-weight:400;
   font-size:var(--fs-body);
-  line-height:1.6;
+  line-height:1.7;
   text-wrap:pretty;
   font-variant-numeric:lining-nums;
   -webkit-tap-highlight-color:transparent;
@@ -27,104 +28,99 @@ body {
 img { max-width:100%; display:block; }
 p { margin:0 0 1em; }
 p:last-child { margin-bottom:0; }
+a { color:var(--raspberry); text-decoration:none; }
+:focus-visible { outline:2px solid var(--raspberry); outline-offset:3px; }
+button, input, textarea { font:inherit; color:inherit; }
+button { touch-action:manipulation; }
 
-a { color:var(--terra); text-decoration:none; }
-
-/* фокус виден всегда — иначе страница непроходима с клавиатуры */
-:focus-visible { outline:2px solid var(--terra); outline-offset:3px; }
-
-button, input, textarea, select { font:inherit; color:inherit; }
-button { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
-
-/* якорь не должен уезжать под фиксированную шапку */
-[id] { scroll-margin-top:calc(var(--hh) + 16px); }
-
-/* ---------- заголовки ---------- */
-h1, h2, h3, blockquote, .display, .figure-n {
+/* ---------- дисплейная гарнитура ---------- */
+h1, h2, h3, .display, blockquote {
   font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   font-weight:500;
-  font-style:normal;
+  margin:0;
 }
-h1 { margin:0; font-size:var(--fs-display); line-height:1.02; letter-spacing:-.02em; }
-h2 { margin:0 0 20px; font-size:var(--fs-h2); line-height:1.08; letter-spacing:-.015em; text-wrap:balance; }
-h3 { margin:0 0 8px; font-size:var(--fs-h3); line-height:1.2; letter-spacing:-.01em; }
+h1 {
+  font-size:var(--fs-h1);
+  line-height:1.06;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+h2 {
+  font-size:var(--fs-h2);
+  line-height:1.05;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+  color:var(--raspberry);
+  text-wrap:balance;
+}
+h2.h2--sm { font-size:var(--fs-h2-sm); }
+/* H2 сам без внешних отступов, поэтому отбивку задаёт следующий элемент */
+h2 + .lead, h2 + .lead--18, h2 + p { margin-top:20px; }
+h3 { font-size:23px; line-height:1.25; font-weight:600; color:var(--emerald); }
 
 /* ---------- текстовые роли ---------- */
-.lead { font-size:var(--fs-lead); line-height:1.5; color:var(--ink-2); }
-.muted { color:var(--ink-2); }
-.small { font-size:var(--fs-small); line-height:1.55; }
-.cap { font-size:var(--fs-label); line-height:1.5; color:var(--ink-2); }
-.text { max-width:var(--w-text); }
+.lead { font-size:var(--fs-lead); line-height:1.65; color:var(--body); }
+.lead--18 { font-size:18px; line-height:1.75; color:var(--body-2); }
+.small { font-size:var(--fs-small); line-height:1.65; color:var(--muted-3); }
+.cap { font-size:var(--fs-label); line-height:1.55; color:var(--muted); }
+.text { max-width:62ch; }
 
-/* цифры всегда моноширинные по ширине знака — колонки не пляшут */
-/* ⚠️ Cormorant Garamond по умолчанию даёт старостильные цифры: «11»
-   выглядит как две палочки, а ноль проваливается ниже строки.
-   Для чисел-фактов включаем маюскульные и табличные. */
-.figure-n, .price, .stat-n, .card-n, .rail-n, time { font-variant-numeric:lining-nums tabular-nums; }
-
-/* ---------- сигнатурный приём: линейка раздела ----------
-   Одна тонкая линия, слева номер антиквой, справа лейбл в разрядку.
-   Повторяется по странице пять раз и держит журнальный ритм. */
+/* ---------- надзаголовок и рельс раздела ---------- */
+.eyebrow {
+  display:flex; align-items:center; gap:14px;
+  margin:0 0 22px;
+  font-size:var(--fs-label); font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--coral-dark);
+}
+.eyebrow::before {
+  content:''; width:34px; height:1px; flex:0 0 34px;
+  background:var(--coral);
+}
 .rail {
-  position:relative;
-  display:flex;
-  align-items:baseline;
-  gap:16px;
-  margin:0 0 28px;
-  padding-top:14px;
+  margin:0 0 22px;
+  font-size:var(--fs-label); font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--muted);
 }
-/* линия — псевдоэлементом, чтобы её можно было прочертить (см. motion.css) */
-.rail::before {
-  content:'';
-  position:absolute; inset:0 0 auto;
-  height:1px; background:var(--ink);
-  transform-origin:left;
-}
-.rail-n {
-  font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:20px;
-  line-height:1;
-  color:var(--terra);
-  font-variant-numeric:tabular-nums;
-}
-.rail-t {
-  font-size:var(--fs-label);
-  font-weight:500;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  line-height:1.4;
-  color:var(--ink-3);
-}
-.on-deep .rail::before { background:var(--line-cream); }
-.on-deep .rail-n { color:var(--terra-lite); }
-.on-deep .rail-t { color:var(--on-deep-2); }
+.rail b { font-weight:500; color:var(--coral-dark); }
 
-/* ---------- секции и сетки ---------- */
-.wrap { width:100%; max-width:var(--w-page); margin-inline:auto; }
-.sec { padding:var(--py) var(--px); }
+/* ---------- секции ---------- */
+.wrap { width:100%; max-width:var(--w-page); margin-inline:auto; padding-inline:var(--px); }
+.sec { padding-block:var(--py); }
 .sec--lg { padding-block:var(--py-lg); }
-.sec--sand { background:var(--sand); }
-.sec--deep { background:var(--deep); color:var(--cream); }
 
-/* на тёмной заливке наборный текст сплошной, без прозрачности */
-.on-deep h2, .on-deep h3, .on-deep p, .on-deep li { color:var(--cream); }
-.on-deep .lead, .on-deep .muted, .on-deep .small { color:var(--on-deep-2); }
-.on-deep a { color:var(--terra-lite); }
+/* дуга на стыке: секция «наезжает» на предыдущую скруглённым верхом */
+.sec--arc {
+  border-radius:var(--arc) var(--arc) 0 0;
+  margin-top:-40px;
+  position:relative;
+  z-index:1;
+}
+.sec--peach { background:linear-gradient(180deg, var(--peach), var(--ivory-3)); }
+.sec--sand  { background:linear-gradient(180deg, var(--ivory-3), var(--blush)); }
+.sec--stone { background:linear-gradient(180deg, var(--stone), var(--peach)); }
+.sec--ivory { background:var(--ivory); }
+.sec--dark {
+  background:linear-gradient(165deg, var(--emerald), var(--emerald-2));
+  color:var(--on-dark);
+}
+.sec--dark h2, .sec--dark h3 { color:var(--on-dark); }
+.sec--dark .lead, .sec--dark p { color:var(--on-dark-75); }
+.sec--dark .rail { color:var(--apricot); }
+.sec--dark .rail b { color:var(--apricot); }
 
+/* ---------- сетки ----------
+   Хэндоф специально обходится без медиазапросов: auto-fit + minmax
+   сами складывают колонки. Точку схлопывания задаёт minmax. */
 .grid { display:grid; gap:16px; }
-.g2, .g3, .g4 { display:grid; gap:16px; grid-template-columns:1fr; }
-@media (min-width:640px) {
-  .g2 { grid-template-columns:repeat(2,1fr); }
-  .g3 { grid-template-columns:repeat(2,1fr); }
-  .g4 { grid-template-columns:repeat(2,1fr); gap:24px 20px; }
-}
-@media (min-width:1024px) {
-  .g3 { grid-template-columns:repeat(3,1fr); }
-  .g4 { grid-template-columns:repeat(4,1fr); }
-}
-
-.hr { height:1px; background:var(--line); border:0; margin:0; }
-.on-deep .hr { background:var(--line-cream); }
+.cols   { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(330px, 100%),1fr)); gap:56px; }
+.cols--60 { gap:60px; }
+.cards  { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(430px, 100%),1fr)); gap:16px; }
+.cards--sm { grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%),1fr)); gap:14px; }
+.cards--wide { grid-template-columns:repeat(auto-fit, minmax(min(390px, 100%),1fr)); gap:18px; }
+.nums   { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(170px, 100%),1fr)); gap:14px; }
+.nums--sm { grid-template-columns:repeat(auto-fit, minmax(min(140px, 100%),1fr)); }
 
 /* ---------- доступность ---------- */
 .sr-only {
@@ -132,7 +128,7 @@ h3 { margin:0 0 8px; font-size:var(--fs-h3); line-height:1.2; letter-spacing:-.0
   overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
 }
 a.skip:focus {
-  position:fixed; left:12px; top:12px; z-index:60;
+  position:fixed; left:12px; top:12px; z-index:80;
   width:auto; height:auto; clip:auto; margin:0;
-  background:var(--terra); color:#fff; padding:12px 20px; border-radius:var(--r);
+  background:var(--emerald); color:var(--ivory); padding:12px 20px; border-radius:999px;
 }

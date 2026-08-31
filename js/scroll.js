@@ -1,23 +1,18 @@
-/* Шапка и липкая полоса действия. Полоса живёт от конца первого
-   экрана до формы: у самой формы она мешала бы её же кнопке. */
+/* Липкая полоса действия на телефоне: живёт от конца первого экрана
+   до формы — у самой формы она перекрывала бы её же кнопку. */
 export function initScroll() {
-  const hd = document.getElementById('hd');
   const bar = document.getElementById('bar');
   const hero = document.querySelector('.hero');
   const form = document.getElementById('form');
+  if (!bar || !hero || !form) return;
   let ticking = false;
 
   const frame = () => {
     ticking = false;
-    const y = window.pageYOffset || document.documentElement.scrollTop;
-    if (hd) hd.classList.toggle('is-scrolled', y > 24);
-    if (bar && hero && form) {
-      const pastHero = hero.getBoundingClientRect().bottom < 0;
-      const formNear = form.getBoundingClientRect().top < window.innerHeight * 0.9;
-      bar.classList.toggle('is-shown', pastHero && !formNear);
-    }
+    const pastHero = hero.getBoundingClientRect().bottom < 0;
+    const formNear = form.getBoundingClientRect().top < window.innerHeight * 0.9;
+    bar.classList.toggle('is-shown', pastHero && !formNear);
   };
-
   const onScroll = () => {
     if (ticking) return;
     ticking = true;

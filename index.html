@@ -18,13 +18,13 @@
 <meta property="og:description" content="Четыре дня у моря: Кундалини йога, пранаямы, гонг-медитации и беседы о процветании. 40 000 ₽, всё включено.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta name="theme-color" content="#F7F2EA">
+<meta name="theme-color" content="#FDF6EF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -35,119 +35,103 @@
 <body>
 <a class="sr-only skip" href="#main">Перейти к содержанию</a>
 
-<header class="hd" id="hd">
-  <a class="hd-brand" href="#main">Атма Бани Каур<span>.</span></a>
+<header class="hd">
+  <a class="hd-brand" href="#top">Атма Бани Каур</a>
   <nav class="hd-nav" aria-label="Основная навигация">
     <a href="#author">Ведущая</a>
     <a href="#program">Программа</a>
     <a href="#venue">Место</a>
     <a href="#price">Стоимость</a>
   </nav>
-  <a class="btn btn--ghost hd-cta" href="#form">Забронировать место</a>
-  <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="navPanel">
-    <span></span><span></span>
-  </button>
+  <a class="btn btn--ghost" href="#form">Забронировать</a>
 </header>
-<nav class="nav-panel" id="navPanel" aria-label="Меню">
-  <a href="#author">Ведущая</a>
-  <a href="#program">Программа</a>
-  <a href="#venue">Место</a>
-  <a href="#price">Стоимость</a>
-  <a href="#form">Забронировать место</a>
-</nav>
 
 <main id="main">
 
-  <!-- ============ 1. первый экран · действие 1 ============ -->
-  <section class="sec hero">
+  <!-- ============ 1. герой ============ -->
+  <section class="hero" id="top">
     <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <p class="hero-eb">Вардане · Сочи · 9—12 октября 2026</p>
-          <h1>Йога <em>и процветание</em></h1>
-          <p class="hero-sub">Женский ретрит по Кундалини йоге с Атма Бани Каур</p>
-          <p class="hero-lead">Четыре дня у моря, чтобы успокоить ум, вернуть телу лёгкость и сформировать намерение на новый цикл. Начинаем в новолуние.</p>
+      <div class="cols hero-grid">
+        <div class="hero-col">
+          <div>
+            <p class="eyebrow">Вардане · Сочи · 9—12 октября 2026</p>
+            <h1><span class="l1">Йога и</span><span class="l2">процветание</span></h1>
+            <p class="hero-sub">Женский ретрит по Кундалини йоге<br>с Атма Бани Каур</p>
+            <p class="hero-lead">Четыре дня у моря, чтобы успокоить ум, вернуть телу лёгкость и сформировать намерение на новый цикл. Начинаем в новолуние.</p>
+          </div>
           <div class="hero-cta">
-            <a class="btn" href="#form">Забронировать место</a>
-            <p class="cta-note">Это ещё не оплата — сначала разговор с Татьяной.</p>
+            <a class="btn btn--main" href="#form">Забронировать место</a>
           </div>
         </div>
         <figure class="hero-fig">
-          <div class="ph hero-ph">
-            <img src="photos/r/t-beach-lotus.webp" alt="Атма Бани Каур на утренней практике у моря" width="826" height="1221" fetchpriority="high" decoding="async">
+          <div class="ph ph--arch">
+            <img src="photos/r/portrait-white.webp" alt="Атма Бани Каур — Татьяна Иванская" width="856" height="1280" fetchpriority="high" decoding="async">
           </div>
         </figure>
       </div>
 
-      <div class="stats hero-stats">
-        <div><span class="stat-n">4</span><span class="stat-l">дня у моря</span></div>
-        <div><span class="stat-n"><em>40 000 ₽</em></span><span class="stat-l">всё включено</span></div>
-        <div><span class="stat-n">20</span><span class="stat-l">лет практики ведущей</span></div>
-        <div><span class="stat-n">09.10</span><span class="stat-l">заезд, сбор к 18:00</span></div>
+      <div class="nums hero-nums rv">
+        <div class="num-card"><b>4</b><span>дня у моря</span></div>
+        <div class="num-card"><b class="is-coral">40 000 ₽</b><span>всё включено</span></div>
+        <div class="num-card"><b>20</b><span>лет практики ведущей</span></div>
+        <div class="num-card"><b>09.10</b><span>заезд, сбор к 18:00</span></div>
       </div>
     </div>
+    <span class="orb orb--1" aria-hidden="true"></span>
+    <span class="orb orb--2" aria-hidden="true"></span>
   </section>
 
   <!-- ============ 2. для кого ============ -->
-  <section class="sec sec--sand" id="who">
+  <section class="sec sec--arc sec--peach" id="who">
     <div class="wrap">
-      <p class="rail"><span class="rail-n">01</span><span class="rail-t">Для кого</span></p>
-      <div class="rv">
-        <h2>Время, когда закладывается новое</h2>
-        <p class="lead text">Новолуние — начало цикла. В эти дни легче отпустить старое и решить не только что вы хотите, но и какой хотите себя чувствовать.</p>
+      <p class="rail rv"><b>01</b> · Для кого</p>
+      <h2 class="rv">Время, когда закладывается новое</h2>
+      <p class="lead text rv">Новолуние — начало цикла. В эти дни легче отпустить старое и решить не только что вы хотите, но и какой хотите себя чувствовать.</p>
+
+      <p class="cue rv">Если узнаёте себя хотя бы в двух пунктах</p>
+      <div class="cards cards--wide rv">
+        <div class="card card--pain"><span class="n" aria-hidden="true">01</span><p>Голова не выключается даже на отдыхе: списки, тревога, «а что если».</p></div>
+        <div class="card card--pain"><span class="n" aria-hidden="true">02</span><p>Тело устало: спина, зажимы, утро без бодрости.</p></div>
+        <div class="card card--pain"><span class="n" aria-hidden="true">03</span><p>Хочется перемен, но непонятно, с чего начать.</p></div>
+        <div class="card card--pain"><span class="n" aria-hidden="true">04</span><p>Давно не было четырёх дней только для себя.</p></div>
       </div>
 
-      <p class="stat-l cue rv">Если узнаёте себя хотя бы в двух пунктах</p>
-      <div class="g2 rv">
-        <div class="card">
-          <span class="card-n">01</span>
-          <p>Голова не выключается даже на отдыхе: списки, тревога, «а что если».</p>
-        </div>
-        <div class="card">
-          <span class="card-n">02</span>
-          <p>Тело устало: спина, зажимы, утро без бодрости.</p>
-        </div>
-        <div class="card">
-          <span class="card-n">03</span>
-          <p>Хочется перемен, но непонятно, с чего начать.</p>
-        </div>
-        <div class="card">
-          <span class="card-n">04</span>
-          <p>Давно не было четырёх дней только для себя.</p>
-        </div>
-      </div>
-
-      <div class="text rv is-mt">
-        <p class="lead lead--ink">Значит, вам сюда.</p>
-        <p class="muted">Цель ретрита — красота на трёх уровнях: ментальном, физическом и духовном. Не «всё и сразу», а конкретные практики, которые вы увезёте домой и сможете повторять сами.</p>
+      <div class="who-end rv">
+        <span class="display">Значит, вам сюда</span>
+        <p>Цель ретрита — красота на трёх уровнях: ментальном, физическом и духовном. Не «всё и сразу», а конкретные практики, которые вы увезёте домой и сможете повторять сами.</p>
       </div>
     </div>
   </section>
 
   <!-- ============ 3. ведущая ============ -->
-  <section class="sec sec--lg" id="author">
+  <section class="sec sec--lg sec--ivory" id="author">
     <div class="wrap">
-      <p class="rail"><span class="rail-n">02</span><span class="rail-t">Ведущая ретрита</span></p>
+      <p class="rail rv"><b>02</b> · Ведущая ретрита</p>
 
-      <div class="author-grid rv">
-        <figure>
-          <div class="ph author-ph">
-            <img src="photos/r/t-portrait-white.webp" alt="Татьяна Иванская — Атма Бани Каур, преподаватель Кундалини йоги" width="856" height="1280" loading="lazy" decoding="async">
+      <div class="cols cols--60 rv">
+        <figure class="author-fig">
+          <span class="orb" aria-hidden="true"></span>
+          <div class="ph">
+            <img src="photos/r/garden.webp" alt="Татьяна Иванская в саду" width="1280" height="960" loading="lazy" decoding="async">
           </div>
-          <p class="ph-cap">Татьяна Иванская. Духовное имя — Атма Бани Каур.</p>
+          <figcaption class="ph-cap">Татьяна Иванская. Духовное имя — Атма Бани Каур.</figcaption>
+          <div class="ph ph--fill">
+            <img src="photos/r/teaching.webp" alt="Татьяна объясняет крию перед практикой" width="1280" height="960" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="ph-cap">На занятии: объясняет крию перед практикой.</figcaption>
         </figure>
 
         <div>
-          <h2>Двадцать лет практики, одиннадцать — преподавания</h2>
-          <p class="lead">Сертифицированный преподаватель Кундалини йоги международного уровня, школа Амрит Нам Саровар (Франция). Прошла все три уровня обучения у йога-профессора Карты Сингха; третий — в его ашраме Ле Мартине во французских Альпах.</p>
+          <h2 class="h2--sm">Двадцать лет практики, одиннадцать — преподавания</h2>
+          <p class="lead--18">Сертифицированный преподаватель Кундалини йоги международного уровня, школа Амрит Нам Саровар (Франция). Прошла все три уровня обучения у йога-профессора Карты Сингха; третий — в его ашраме Ле Мартине во французских Альпах.</p>
 
-          <div class="stats author-nums">
-            <div><span class="stat-n">20</span><span class="stat-l">лет в практике</span></div>
-            <div><span class="stat-n">11</span><span class="stat-l">лет преподаёт</span></div>
-            <div><span class="stat-n">6</span><span class="stat-l">направлений йога-туров</span></div>
+          <div class="nums nums--sm author-nums">
+            <div class="num-card"><b>20</b><span>лет в практике</span></div>
+            <div class="num-card"><b>11</b><span>лет преподаёт</span></div>
+            <div class="num-card"><b>6</b><span>направлений йога-туров</span></div>
           </div>
 
-          <ul class="creds">
+          <ul class="dots">
             <li>Ведёт Кундалини йогу, бодифлекс, дыхательные практики и медитации</li>
             <li>Организовывала йога-туры: Черногория, Болгария, ОАЭ, Крым, Хайнань, Белокуриха</li>
             <li>Работает с женскими темами: цикл, восстановление, состояние спины после родов</li>
@@ -155,239 +139,228 @@
         </div>
       </div>
 
-      <div class="word-grid rv is-mt-lg">
+      <div class="cols author-quote rv">
         <div>
-          <blockquote class="word-q">«Кундалини йога — самая прекрасная практика из всех, что я знаю. В какой-то момент я поняла, что буду заниматься ею всю жизнь».</blockquote>
-          <div class="word-text">
-        <p>Она помогла мне решить несколько очень личных задач. Сначала — успокоить ум, когда я не могла забеременеть. Потом определённые упражнения и дыхание привели тело в состояние, готовое принять беременность. А после рождения ребёнка, когда спина отваливалась от постоянного ношения на руках, именно Кундалини йога сняла сильные боли в позвоночнике.</p>
-        <p>Я не обещаю чудес. Я показываю практики, которые сработали у меня и у моих учениц, — и учу делать их правильно, чтобы вы могли продолжать дома.</p>
-        <p>Верьте, что вы этого заслуживаете. Жду вас в Вардане.</p>
-          </div>
+          <blockquote>«Кундалини йога — самая прекрасная практика из всех, что я знаю. В какой-то момент я поняла, что буду заниматься ею всю жизнь».</blockquote>
+          <hr class="sep">
+          <p>Она помогла мне решить несколько очень личных задач. Сначала — успокоить ум, когда я не могла забеременеть. Потом определённые упражнения и дыхание привели тело в состояние, готовое принять беременность. А после рождения ребёнка, когда спина отваливалась от постоянного ношения на руках, именно Кундалини йога сняла сильные боли в позвоночнике.</p>
+          <p>Я не обещаю чудес. Я показываю практики, которые сработали у меня и у моих учениц, — и учу делать их правильно, чтобы вы могли продолжать дома.</p>
         </div>
-        <figure>
-          <div class="ph word-ph">
-            <img src="photos/r/t-sea-sand.webp" alt="Татьяна Иванская на берегу моря" width="1280" height="854" loading="lazy" decoding="async">
-          </div>
-        </figure>
+        <div class="ph">
+          <img src="photos/r/sea-sand.webp" alt="Татьяна Иванская на берегу моря" width="1280" height="854" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="author-final rv">
+        <div class="rule" aria-hidden="true"></div>
+        <blockquote><span>Верьте, что вы этого заслуживаете.</span><span>Жду вас в Вардане.</span></blockquote>
+        <p class="sign">Атма Бани Каур</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ перебивка: берег ============ -->
-  <figure class="bleed rv">
-    <div class="ph">
-      <img src="photos/r/g-beach.webp" alt="Галечный берег в Вардане" width="2200" height="940" loading="lazy" decoding="async">
-    </div>
-    <div class="scrim"></div>
+  <!-- ============ 4. перебивка: берег ============ -->
+  <figure class="bleed bleed--beach rv">
+    <img src="photos/r/beach-class.webp" alt="Утренняя практика группы на берегу" width="960" height="1280" loading="lazy" decoding="async">
     <figcaption>
       <div>
         <p class="bleed-h">Галечный берег в семи минутах</p>
-        <p class="bleed-p">Утренние практики выносим на берег, когда позволяет погода.</p>
+        <p>Утренние практики выносим на берег, когда позволяет погода.</p>
       </div>
     </figcaption>
   </figure>
 
-  <!-- ============ 4. что вас ждёт ============ -->
-  <section class="sec" id="program">
+  <!-- ============ 5. программа ============ -->
+  <section class="sec sec--ivory" id="program">
     <div class="wrap">
-      <p class="rail"><span class="rail-n">03</span><span class="rail-t">Программа</span></p>
-      <div class="rv">
-        <h2>Что вас ждёт за четыре дня</h2>
-        <p class="lead text">Восемь практик, которые складываются в один день и повторяются с вариациями. Все осваиваются с нуля.</p>
+      <div class="cols program-head rv">
+        <div>
+          <p class="rail"><b>03</b> · Программа</p>
+          <h2>Что вас ждёт</h2>
+          <p class="lead">Восемь практик, которые складываются в один день и повторяются с вариациями. Все можно освоить с нуля.</p>
+        </div>
+        <div class="ph ph--arch-sm">
+          <img src="photos/r/namaste-yellow.webp" alt="Татьяна в намасте перед практикой" width="720" height="1280" loading="lazy" decoding="async">
+        </div>
       </div>
 
-      <div class="g3 rv is-mt">
-        <div class="card">
+      <div class="cards rv">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="5"/><path d="M13 1v3M13 22v3M1 13h3M22 13h3M4.6 4.6l2.1 2.1M19.3 19.3l2.1 2.1M21.4 4.6l-2.1 2.1M6.7 19.3l-2.1 2.1"/></svg>
           <h3>Утренние мастер-классы Кундалини йоги</h3>
           <p>Крии, разработанные специально для женщин. Тело, дыхание, концентрация — в одном комплексе.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M1 8c3-3 5-3 8 0s5 3 8 0 5-3 8 0M1 14c3-3 5-3 8 0s5 3 8 0 5-3 8 0M1 20c3-3 5-3 8 0s5 3 8 0 5-3 8 0"/></svg>
           <h3>Пранаямы</h3>
           <p>Дыхательные техники для успокоения ума и наполнения энергией. Осваиваются с нуля.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2v22"/><path d="M9 5h8M9 10h8M9 15h8M9 20h8"/></svg>
           <h3>Тибетская йога</h3>
           <p>Комплекс на гибкость позвоночника и общий тонус — практика, которую связывают с сохранением молодости.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><circle cx="9" cy="13" r="6"/><circle cx="17" cy="13" r="6"/></svg>
           <h3>Йога для пальцев</h3>
           <p>Мудры: мелкая моторика как тренировка для мозга. Простые упражнения, которые можно делать где угодно.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M20.5 16.5A9 9 0 0 1 9.5 5.5a9 9 0 1 0 11 11z"/></svg>
           <h3>Вечерние медитации</h3>
           <p>Баланс тела, ума и души в конце дня — короткие практики перед сном.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="3"/><circle cx="13" cy="13" r="7"/><circle cx="13" cy="13" r="11"/></svg>
           <h3>Гонг-медитация с Павитрой</h3>
           <p>Звуковая практика глубокого расслабления — многие сравнивают её с эффектом полноценного дневного сна.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 3l10 18H3z"/></svg>
           <h3>Три йога с Павитрой</h3>
           <p>Мягкая телесная практика: точность, безопасность, расслабление.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22c0-6 3-9 9-9 0 6-3 9-9 9zM13 22c0-6-3-9-9-9 0 6 3 9 9 9zM13 22c-3-4-3-9 0-13 3 4 3 9 0 13z"/></svg>
           <h3>Беседы «Как стать процветающей женщиной»</h3>
           <p>Разговор о намерении, ресурсе и о том, что мешает его удерживать. Цикл на четыре вечера.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. ритм дня ============ -->
+  <section class="sec sec--arc sec--sand" id="day">
+    <div class="wrap">
+      <h2 class="rv">Ритм дня</h2>
+      <p class="lead text rv">Примерное расписание дня, может меняться по состоянию группы и решению ведущей.</p>
+
+      <div class="rv">
+        <div class="day-row"><time>07:30</time><h3>Кундалини йога и пранаяма</h3><p>Основной мастер-класс дня: крия, дыхание, короткая медитация. После — завтрак.</p></div>
+        <div class="day-row"><time>11:00</time><h3>Дневная практика</h3><p>Тибетская йога, мудры, дыхательные техники — темы меняются по дням.</p></div>
+        <div class="day-row"><time>13:00</time><h3>Обед и свободное время</h3><p>Море, бассейн, сон — по желанию. Дендрарий, озёра и водопады рядом.</p></div>
+        <div class="day-row"><time>17:00</time><h3>Три йога с Павитрой</h3><p>Мягкая вечерняя работа с телом: точность движения и расслабление.</p></div>
+        <div class="day-row"><time>19:00</time><h3>Беседа о процветании</h3><p>«Как стать процветающей женщиной» — цикл разговоров на четыре вечера.</p></div>
+        <div class="day-row"><time>20:30</time><h3>Вечерняя медитация</h3><p>До 21:30. Один или два вечера за ретрит вместо неё — гонг-медитация с Павитрой.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. с чем вы уезжаете ============ -->
+  <section class="sec sec--ivory" id="results">
+    <div class="wrap">
+      <h2 class="rv">С чем вы уезжаете</h2>
+      <p class="lead text rv">Вы заберёте с собой не вдохновение на неделю, а состояние и практики, которыми сможете его поддерживать долгое время.</p>
+
+      <div class="cards cards--sm rv is-mt-40">
+        <article class="card card--lg">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M20.5 16.5A9 9 0 0 1 9.5 5.5a9 9 0 1 0 11 11z"/></svg>
+          <h3>Спокойный ум</h3>
+          <p>Дыхательные техники, которые работают за пять минут, где бы вы ни были.</p>
+        </article>
+        <article class="card card--lg">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M4 22c0-9 6-15 18-16 1 12-5 18-14 18H4z"/><path d="M4 22c4-5 8-8 13-10"/></svg>
+          <h3>Лёгкость в теле</h3>
+          <p>Комплекс для спины и суставов, который вы делаете сами.</p>
+        </article>
+        <article class="card card--lg">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2l2.6 7.4L23 12l-7.4 2.6L13 22l-2.6-7.4L3 12l7.4-2.6z"/></svg>
+          <h3>Ясное намерение</h3>
+          <p>Сформулированное в новолуние и записанное.</p>
+        </article>
+        <article class="card card--lg">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M2 19h22"/><path d="M6.5 19a6.5 6.5 0 0 1 13 0"/><path d="M13 3v3M4 8l2 2M22 8l-2 2"/></svg>
+          <h3>Ровная энергия</h3>
+          <p>Утро без раскачки и без провала после обеда.</p>
+        </article>
+        <article class="card card--lg">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22V9"/><path d="M13 9c0-3 1.6-5.5 4-6.5C17.6 5.6 16 8.4 13 9zM13 9c0-3-1.6-5.5-4-6.5C8.4 5.6 10 8.4 13 9z"/><path d="M7 22h12"/></svg>
+          <h3>Свой ритуал</h3>
+          <p>Утренняя практика на двадцать минут, собранная под вас.</p>
+        </article>
+        <article class="card card--lg">
+          <svg class="icon" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="3.5" r="1.6"/><circle cx="13" cy="22.5" r="1.6"/><circle cx="3.5" cy="13" r="1.6"/><circle cx="22.5" cy="13" r="1.6"/><circle cx="6.3" cy="6.3" r="1.6"/><circle cx="19.7" cy="19.7" r="1.6"/><circle cx="19.7" cy="6.3" r="1.6"/><circle cx="6.3" cy="19.7" r="1.6"/></svg>
+          <h3>Круг женщин</h3>
+          <p>Общение, которое продолжается и после ретрита.</p>
+        </article>
+      </div>
+
+      <div class="center-cta rv">
+        <a class="btn btn--mid" href="#form">Забронировать место</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. приглашённый мастер ============ -->
+  <section class="sec sec--arc sec--dark" id="guest">
+    <div class="wrap">
+      <div class="cols guest rv">
+        <div class="ph">
+          <img src="photos/r/pavitra.webp" alt="Павитра, приглашённый мастер ретрита" width="854" height="1280" loading="lazy" decoding="async">
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 5. ритм дня ============ -->
-  <section class="sec sec--sand" id="day">
-    <div class="wrap">
-      <div class="rv">
-        <h2>Ритм дня</h2>
-        <p class="lead text is-mb">Один день выглядит так. Участие в каждой практике добровольное — расписание не тюрьма.</p>
-      </div>
-
-      <div class="day rv">
-        <details class="acc slot" open>
-          <summary>
-            <div class="slot-head"><time class="slot-t">07:30</time><h3>Кундалини йога и пранаяма</h3></div>
-            <span class="acc-sign" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body"><p>Основной мастер-класс дня: крия, дыхание, короткая медитация. После — завтрак.</p></div>
-        </details>
-        <details class="acc slot" open>
-          <summary>
-            <div class="slot-head"><time class="slot-t">11:00</time><h3>Дневная практика</h3></div>
-            <span class="acc-sign" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body"><p>Тибетская йога, мудры, дыхательные техники — темы меняются по дням.</p></div>
-        </details>
-        <details class="acc slot" open>
-          <summary>
-            <div class="slot-head"><time class="slot-t">13:00</time><h3>Обед и свободное время</h3></div>
-            <span class="acc-sign" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body"><p>Море, бассейн, сон — по желанию. Дендрарий, озёра и водопады рядом.</p></div>
-        </details>
-        <details class="acc slot" open>
-          <summary>
-            <div class="slot-head"><time class="slot-t">17:00</time><h3>Три йога с Павитрой</h3></div>
-            <span class="acc-sign" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body"><p>Мягкая вечерняя работа с телом: точность движения и расслабление.</p></div>
-        </details>
-        <details class="acc slot" open>
-          <summary>
-            <div class="slot-head"><time class="slot-t">19:00</time><h3>Беседа о процветании</h3></div>
-            <span class="acc-sign" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body"><p>«Как стать процветающей женщиной» — цикл разговоров на четыре вечера.</p></div>
-        </details>
-        <details class="acc slot" open>
-          <summary>
-            <div class="slot-head"><time class="slot-t">20:30</time><h3>Вечерняя медитация</h3></div>
-            <span class="acc-sign" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body"><p>До 21:30. Один или два вечера за ретрит вместо неё — гонг-медитация с Павитрой.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 6. с чем вы уезжаете · действие 2 ============ -->
-  <section class="sec" id="results">
-    <div class="wrap">
-      <div class="rv">
-        <h2>С чем вы уезжаете</h2>
-        <p class="lead text is-mb">Не «вдохновение на неделю», а практики, которые остаются с вами.</p>
-      </div>
-
-      <ul class="rows rv">
-        <li><b>Спокойный ум</b><span>Дыхательные техники, которые работают за пять минут, где бы вы ни были.</span></li>
-        <li><b>Лёгкость в теле</b><span>Комплекс для спины и суставов, который вы делаете сами.</span></li>
-        <li><b>Ясное намерение</b><span>Сформулированное в новолуние и записанное.</span></li>
-        <li><b>Ровная энергия</b><span>Утро без раскачки и без провала после обеда.</span></li>
-        <li><b>Свой ритуал</b><span>Утренняя практика на двадцать минут, собранная под вас.</span></li>
-        <li><b>Круг женщин</b><span>Общение, которое продолжается и после ретрита.</span></li>
-      </ul>
-
-      <div class="is-center rv">
-        <a class="btn" href="#form">Забронировать место</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 7. приглашённый мастер ============ -->
-  <section class="sec sec--sand" id="guest">
-    <div class="wrap">
-      <div class="guest">
-        <div class="guest-head rv">
-          <p class="stat-l is-mb-s">Приглашённый мастер</p>
+        <div>
+          <p class="rail">Приглашённый мастер</p>
           <h2 class="guest-name">Павитра</h2>
           <p class="guest-role">Проводник Три йоги, пранаямы и гонг-медитации. 25 лет практики.</p>
-        </div>
-
-        <div class="ph guest-ph rv">
-          <img src="photos/r/p-portrait.webp" alt="Павитра, приглашённый мастер ретрита" width="854" height="1280" loading="lazy" decoding="async">
-        </div>
-
-        <div class="guest-body rv">
-          <p>Ведёт вечернюю Три йогу, пранаяму и проводит гонг-медитацию — звуковую практику глубокого расслабления. Сочетает телесную, дыхательную и медитативную работу, подбирая нагрузку под особенности тела и состояние каждой участницы. Акцент — на верном и безопасном выполнении, расслаблении и осознанности.</p>
-          <div class="guest-q">
-            <blockquote class="guest-quote">«Представьте, что вы стоите на берегу океана, и на вас накатывают волны звука. Напряжение уходит, оставляя место покою — вы как чистый холст, готовый принять новые краски».</blockquote>
-            <p class="guest-sign">Павитра</p>
+          <p class="guest-text">Ведёт вечернюю Три йогу, пранаяму и проводит гонг-медитацию — звуковую практику глубокого расслабления. Сочетает телесную, дыхательную и медитативную работу, подбирая нагрузку под особенности тела и состояние каждой участницы. Акцент — на верном и безопасном выполнении, расслаблении и осознанности.</p>
+          <div class="guest-quote">
+            <blockquote>«Представьте, что вы стоите на берегу океана, и на вас накатывают волны звука. Напряжение уходит, оставляя место покою — вы как чистый холст, готовый принять новые краски».</blockquote>
+            <p class="sign">Павитра</p>
           </div>
         </div>
+        <span class="orb" aria-hidden="true"></span>
       </div>
     </div>
   </section>
 
-  <!-- ============ перебивка: гонг-медитация ============ -->
-  <figure class="bleed rv">
-    <div class="ph">
-      <img src="photos/r/p-gong.webp" alt="Гонг-медитация: участницы лежат, мастер играет на гонге" width="1280" height="720" loading="lazy" decoding="async">
-    </div>
-    <div class="scrim"></div>
+  <!-- ============ 9. перебивка: гонг-медитация ============ -->
+  <figure class="bleed bleed--sm bleed--gong rv">
+    <img src="photos/r/pavitra-gong.webp" alt="Гонг-медитация: участницы лежат, мастер играет на гонге" width="1280" height="720" loading="lazy" decoding="async">
     <figcaption>
       <div>
         <p class="bleed-h">Гонг-медитация</p>
-        <p class="bleed-p">Групповая звуковая практика: участницы лежат, Павитра играет на гонге. Вибрации дают глубокое мышечное и нервное расслабление.</p>
+        <p>Групповая звуковая практика: участницы лежат, Павитра играет на гонге. Вибрации дают глубокое мышечное и нервное расслабление.</p>
       </div>
     </figcaption>
   </figure>
 
-  <!-- ============ 8. место ============ -->
-  <section class="sec" id="venue">
+  <!-- ============ 10. место ============
+       Отклонение от макета: вместо кадров йога-туров (palms, beach-namaste,
+       triangle) стоят реальные снимки ретрит-центра — решение заказчицы,
+       записано в DECISIONS.md. -->
+  <section class="sec sec--ivory" id="venue">
     <div class="wrap">
-      <p class="rail"><span class="rail-n">04</span><span class="rail-t">Место</span></p>
-      <div class="rv">
-        <h2>Ретрит-центр «Энергия солнца», Вардане</h2>
-        <p class="muted text is-mb">Субтропики Лазаревского района: галечные пляжи, дендрарий, озёра и водопады. Закрытая территория на склоне над морем — три корпуса, бассейн, беседки и террасы, где проходят практики. Спуск к пляжу семь минут пешком. Во всех номерах кондиционер, холодильник и душ, на территории охраняемая парковка.</p>
+      <p class="rail rv"><b>04</b> · Место</p>
+      <h2 class="h2--sm rv">Ретрит-центр «Энергия солнца», Вардане</h2>
+      <p class="lead--18 text rv">Субтропики Лазаревского района: галечные пляжи, дендрарий, озёра и водопады. Закрытая территория на склоне над морем — три корпуса, бассейн, беседки и террасы, где проходят практики. Спуск к пляжу семь минут пешком. Во всех номерах кондиционер, холодильник и душ, на территории охраняемая парковка.</p>
+
+      <div class="venue-photos rv">
+        <span class="orb" aria-hidden="true"></span>
+        <div class="ph"><img src="photos/r/v-pool.webp" alt="Бассейн и территория ретрит-центра" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div class="ph"><img src="photos/r/g-yoga.webp" alt="Практика на террасе с видом на море" width="1150" height="740" loading="lazy" decoding="async"></div>
+        <div class="ph"><img src="photos/r/v-sunset.webp" alt="Закат над морем с террасы центра" width="1200" height="900" loading="lazy" decoding="async"></div>
       </div>
 
-      <div class="venue-grid rv">
-        <figure>
-          <div class="ph"><img src="photos/r/v-pool.webp" alt="Бассейн и территория ретрит-центра" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        </figure>
-        <figure>
-          <div class="ph"><img src="photos/r/g-yoga.webp" alt="Практика на террасе с видом на море" width="1150" height="740" loading="lazy" decoding="async"></div>
-        </figure>
-        <figure>
-          <div class="ph"><img src="photos/r/v-sunset.webp" alt="Закат над морем с террасы центра" width="1200" height="900" loading="lazy" decoding="async"></div>
-        </figure>
-      </div>
-
-      <div class="stats rv is-mt">
-        <div><span class="stat-n">3</span><span class="stat-l">корпуса и бассейн</span></div>
-        <div><span class="stat-n">300 м</span><span class="stat-l">до моря, спуск 7 минут</span></div>
-        <div><span class="stat-n">3</span><span class="stat-l">ночи, 9—12 октября</span></div>
-        <div><span class="stat-n"><em>2</em></span><span class="stat-l">места в номере</span></div>
+      <div class="nums rv">
+        <div class="num-card"><b>3</b><span>корпуса и бассейн</span></div>
+        <div class="num-card"><b>300 м</b><span>до моря, спуск 7 минут</span></div>
+        <div class="num-card"><b>3</b><span>ночи, 9—12 октября</span></div>
+        <div class="num-card"><b class="is-coral">2</b><span>места в номере</span></div>
       </div>
 
       <div class="venue-info rv">
         <div>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
           <h3>Сбор группы</h3>
           <p>9 октября к 18:00 в отеле. Заселение с 14:00, выезд 12 октября до 12:00.</p>
         </div>
         <div>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
           <h3>Как добраться</h3>
           <p>Из аэропорта — скоростной электричкой до станции Вардане или Лоо, дальше такси. Адрес: ул. Рассветная, 22/14, пос. Вардане.</p>
         </div>
         <div>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1.2 12.5a1.5 1.5 0 0 1-1.5 1.4H6.7a1.5 1.5 0 0 1-1.5-1.4z"/><path d="M9 8V5.6A2.6 2.6 0 0 1 11.6 3h.8A2.6 2.6 0 0 1 15 5.6V8"/></svg>
           <h3>Взять с собой</h3>
           <p>Коврик, удобную одежду для практики (в том числе тёплую на вечер), купальник, плед или шаль для медитаций.</p>
         </div>
@@ -395,72 +368,72 @@
     </div>
   </section>
 
-  <!-- ============ 9. школа и опыт ============
-       План Б по реестру (R-01): отзывов с именами пока нет,
-       поэтому доверие держат подписанные кадры практики и учёбы.
-       Когда придут 3–5 отзывов — секция отзывов встаёт сюда же. -->
-  <section class="sec sec--sand" id="proof">
+  <!-- ============ 11. школа ============ -->
+  <section class="sec sec--arc sec--stone" id="proof">
     <div class="wrap">
-      <div class="rv">
-        <h2>Школа, учителя и практика</h2>
-        <p class="lead text is-mb">Кундалини йогу Татьяна изучала не по видео: три уровня Амрит Нам Саровар, ашрам во Франции, одиннадцать лет собственных групп и йога-туров.</p>
-      </div>
+      <h2 class="h2--sm rv">Школа, учителя и практика</h2>
+      <p class="lead text rv">Кундалини йогу Татьяна изучала не по видео: три уровня Амрит Нам Саровар, ашрам во Франции, одиннадцать лет собственных групп и йога-туров.</p>
 
       <div class="proof rv">
         <figure>
-          <div class="ph"><img src="photos/r/s-with-teacher.webp" alt="Татьяна с йога-профессором Картой Сингхом" width="1280" height="960" loading="lazy" decoding="async"></div>
-          <p class="ph-cap">С йога-профессором Картой Сингхом — учителем всех трёх уровней.</p>
+          <div class="ph"><img src="photos/r/with-teacher.webp" alt="Татьяна с йога-профессором Картой Сингхом" width="1280" height="960" loading="lazy" decoding="async"></div>
+          <figcaption class="ph-cap">С учителем — йога-профессором Картой Сингхом.</figcaption>
         </figure>
         <figure>
-          <div class="ph"><img src="photos/r/s-ashram.webp" alt="Занятие в ашраме Ле Мартине во французских Альпах" width="1280" height="960" loading="lazy" decoding="async"></div>
-          <p class="ph-cap">Третий уровень — ашрам Ле Мартине, французские Альпы.</p>
+          <div class="ph"><img src="photos/r/school-group.webp" alt="Выпуск школы Амрит Нам Саровар" width="960" height="529" loading="lazy" decoding="async"></div>
+          <figcaption class="ph-cap">Школа Амрит Нам Саровар, обучение преподавателей.</figcaption>
         </figure>
         <figure>
-          <div class="ph"><img src="photos/r/g-women-circle.webp" alt="Женская группа после занятия Кундалини йогой" width="1280" height="960" loading="lazy" decoding="async"></div>
-          <p class="ph-cap">Регулярные женские группы — одиннадцатый год.</p>
+          <div class="ph"><img src="photos/r/women-circle.webp" alt="Женская группа после занятия" width="1280" height="960" loading="lazy" decoding="async"></div>
+          <figcaption class="ph-cap">Регулярные женские группы — одиннадцатый год.</figcaption>
         </figure>
         <figure>
-          <div class="ph"><img src="photos/r/g-beach-class.webp" alt="Утренняя практика группы на берегу в йога-туре" width="960" height="1280" loading="lazy" decoding="async"></div>
-          <p class="ph-cap">Йога-туры: Черногория, Болгария, ОАЭ, Крым, Хайнань, Белокуриха.</p>
+          <div class="ph"><img src="photos/r/group-stretch.webp" alt="Группа на растяжке в зале" width="1280" height="960" loading="lazy" decoding="async"></div>
+          <figcaption class="ph-cap">Занятие в зале: мягкая работа с телом.</figcaption>
+        </figure>
+        <figure>
+          <div class="ph"><img src="photos/r/teacher-portrait.webp" alt="Портрет йога-профессора Карты Сингха" width="749" height="1024" loading="lazy" decoding="async"></div>
+          <figcaption class="ph-cap">Карта Сингх — учитель всех трёх уровней.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ 10. стоимость · действие 3 ============ -->
-  <section class="sec sec--lg" id="price">
+  <!-- ============ 12. стоимость ============ -->
+  <section class="sec sec--ivory" id="price">
     <div class="wrap">
-      <p class="rail"><span class="rail-n">05</span><span class="rail-t">Стоимость</span></p>
-      <div class="rv">
-        <h2>Одна цена, без волн и наценок</h2>
-        <p class="lead text is-mb">Она не растёт по мере набора группы. Раньше забронируете — просто спокойнее выбираете соседку по номеру.</p>
+      <p class="rail rv"><b>05</b> · Стоимость</p>
+      <h2 class="h2--sm rv">Одна цена, без волн и наценок</h2>
+      <p class="lead text rv">Она не растёт по мере набора группы. Раньше забронируете — просто спокойнее выбираете соседку по номеру.</p>
+
+      <!-- бейдж «Осталось N мест» из макета не выводится: реального числа
+           мест заказчица не называла (PENDING F-02), выдумывать дефицит нельзя -->
+      <div class="price-box rv">
+        <p class="sum">40 000 ₽<span>с человека, всё включено</span></p>
+        <p class="terms">Предоплата 7 000 ₽ бронирует номер на ваши даты. Остаток за проживание — по приезду, картой в отеле; занятия — наличными на месте.</p>
+        <a class="btn btn--light" href="#form">Забронировать место</a>
       </div>
 
-      <div class="price-grid rv">
-        <div class="price-box">
-          <span class="price">40 000 ₽</span>
-          <p class="price-sub">с человека, всё включено</p>
-          <p class="price-note">Предоплата 7 000 ₽ бронирует номер на ваши даты. Остаток за проживание — по приезду, картой в отеле; занятия — наличными на месте.</p>
-          <a class="btn" href="#form">Забронировать место</a>
-        </div>
-
+      <div class="price-cols rv">
         <div>
-          <p class="stat-l is-mb-s">Входит в стоимость</p>
-          <ul class="incl">
+          <h3>Входит в стоимость</h3>
+          <ul class="marks">
             <li>Проживание 3 ночи в двухместном номере</li>
             <li>Двухразовое вегетарианское питание: завтрак и обед</li>
             <li>Все занятия — утром, днём и вечером</li>
             <li>Гонг-медитация и Три йога с Павитрой</li>
             <li>Беседы «Как стать процветающей женщиной»</li>
           </ul>
-
-          <p class="stat-l is-mb-s">Оплачивается отдельно</p>
-          <ul class="incl incl--no">
+        </div>
+        <div>
+          <h3>Оплачивается отдельно</h3>
+          <ul class="marks marks--minus">
             <li>Дорога до Вардане</li>
             <li>Обеды и ужины вне программы, экскурсии</li>
           </ul>
-
-          <p class="stat-l">Как забронировать</p>
+        </div>
+        <div>
+          <h3>Как забронировать</h3>
           <ol class="steps">
             <li>Оставляете заявку — Татьяна отвечает и разбирает ваши вопросы.</li>
             <li>Вносите предоплату 7 000 ₽ — номер закреплён за вами.</li>
@@ -468,51 +441,52 @@
           </ol>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ============ 11. вопросы ============ -->
-  <section class="sec" id="faq">
+  <!-- ============ 13. вопросы ============ -->
+  <section class="sec sec--arc sec--peach" id="faq">
     <div class="wrap">
-      <h2 class="rv">О чём обычно спрашивают до брони</h2>
-      <div class="rv is-mt-s w-narrow">
-        <details class="acc acc--keep" open>
-          <summary><h3>Подойдёт ли, если я никогда не занималась йогой?</h3><span class="acc-sign" aria-hidden="true"></span></summary>
-          <div class="acc-body"><p>Да. Все практики осваиваются с нуля, нагрузка подбирается под состояние. Главное — желание.</p></div>
-        </details>
-        <details class="acc acc--keep">
-          <summary><h3>Есть ли противопоказания?</h3><span class="acc-sign" aria-hidden="true"></span></summary>
-          <div class="acc-body"><p>У части практик они есть: острые состояния сердца и сосудов, недавние операции, беременность — обсуждается индивидуально. Напишите Татьяне до брони, если сомневаетесь: она подберёт щадящий вариант или честно скажет, что сейчас не время.</p></div>
-        </details>
-        <details class="acc acc--keep">
-          <summary><h3>Можно ли приехать одной?</h3><span class="acc-sign" aria-hidden="true"></span></summary>
-          <div class="acc-body"><p>Большинство участниц так и приезжает. Размещение двухместное — соседку подберём по возрасту и режиму. Нужен отдельный номер — скажите в заявке, посмотрим, что есть свободного.</p></div>
-        </details>
-        <details class="acc acc--keep">
-          <summary><h3>Что если не смогу приехать?</h3><span class="acc-sign" aria-hidden="true"></span></summary>
-          <div class="acc-body"><p>Условия возврата и переноса предоплаты обсуждаются индивидуально. Зафиксируйте договорённости письменно — в переписке с Татьяной — до того, как переводить деньги.</p></div>
-        </details>
-        <details class="acc acc--keep">
-          <summary><h3>Это эзотерика?</h3><span class="acc-sign" aria-hidden="true"></span></summary>
-          <div class="acc-body"><p>Это телесные и дыхательные практики с понятной механикой. Духовная часть — медитации и беседы — есть, но участие в каждой практике добровольное.</p></div>
-        </details>
-        <details class="acc acc--keep">
-          <summary><h3>Останется ли время на море?</h3><span class="acc-sign" aria-hidden="true"></span></summary>
-          <div class="acc-body"><p>Да: с обеда до пяти вечера свободно каждый день. Октябрь в Вардане — бархатный сезон, вода ещё тёплая.</p></div>
-        </details>
+      <div class="faq">
+        <h2 class="h2--sm rv">О чём обычно спрашивают</h2>
+        <div class="rv is-mt-36">
+          <details class="acc" open>
+            <summary>Подойдёт ли, если я никогда не занималась йогой?<span class="sign" aria-hidden="true">+</span></summary>
+            <p>Да. Все практики осваиваются с нуля, нагрузка подбирается под состояние. Главное — желание.</p>
+          </details>
+          <details class="acc">
+            <summary>Есть ли противопоказания?<span class="sign" aria-hidden="true">+</span></summary>
+            <p>У части практик они есть: острые состояния сердца и сосудов, недавние операции, беременность — обсуждается индивидуально. Напишите Татьяне до брони, если сомневаетесь: она подберёт щадящий вариант или честно скажет, что сейчас не время.</p>
+          </details>
+          <details class="acc">
+            <summary>Можно ли приехать одной?<span class="sign" aria-hidden="true">+</span></summary>
+            <p>Большинство участниц так и приезжает. Размещение двухместное — соседку подберём по возрасту и режиму. Нужен отдельный номер — скажите в заявке, посмотрим, что есть свободного.</p>
+          </details>
+          <details class="acc">
+            <summary>Что если не смогу приехать?<span class="sign" aria-hidden="true">+</span></summary>
+            <p>Условия возврата и переноса предоплаты обсуждаются индивидуально. Зафиксируйте договорённости письменно — в переписке с Татьяной — до того, как переводить деньги.</p>
+          </details>
+          <details class="acc">
+            <summary>Это эзотерика?<span class="sign" aria-hidden="true">+</span></summary>
+            <p>Это телесные и дыхательные практики с понятной механикой. Духовная часть — медитации и беседы — есть, но участие в каждой практике добровольное.</p>
+          </details>
+          <details class="acc">
+            <summary>Останется ли время на море?<span class="sign" aria-hidden="true">+</span></summary>
+            <p>Да: с обеда до пяти вечера свободно каждый день. Октябрь в Вардане — бархатный сезон, вода ещё тёплая.</p>
+          </details>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 12. заявка · действие 4 ============ -->
-  <section class="sec sec--deep sec--lg on-deep" id="form">
+  <!-- ============ 14. заявка ============ -->
+  <section class="sec sec--arc sec--dark" id="form">
     <div class="wrap">
-      <div class="form-grid">
-        <div>
-          <p class="rail"><span class="rail-n">06</span><span class="rail-t">Заявка</span></p>
+      <div class="cols form-grid">
+        <div class="form-col rv">
+          <p class="rail"><b>06</b> · Заявка</p>
           <h2>Забронировать место</h2>
-          <p class="lead is-mb">Это ещё не оплата. Оставьте имя и контакт — Татьяна свяжется, ответит на вопросы и расскажет, как внести предоплату.</p>
+          <p class="lead">Это ещё не оплата. Оставьте имя и контакт — Татьяна свяжется, ответит на вопросы и расскажет, как внести предоплату.</p>
 
           <form class="lead-form" id="leadForm" novalidate>
             <div class="field">
@@ -533,20 +507,25 @@
               <input type="checkbox" id="lf-consent" name="consent" required>
               <label for="lf-consent">Согласна на обработку персональных данных и ознакомлена с <a href="privacy.html">политикой</a>.</label>
             </div>
-            <button type="submit" class="btn">Отправить заявку</button>
+            <button type="submit" class="btn btn--light">Отправить заявку</button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
 
-        <aside class="contact-card">
-          <span class="name">Татьяна Иванская</span>
-          <span class="role">Ведущая ретрита. Бронирование мест — лично.</span>
-          <p class="small">Отвечаю в течение дня. Если вопрос срочный — звоните.</p>
-          <div class="contact-list">
-            <a href="tel:+79069765353">+7 906 976-53-53</a>
-            <a href="mailto:tivanskaya@mail.ru">tivanskaya@mail.ru</a>
+        <div class="form-side rv">
+          <span class="orb" aria-hidden="true"></span>
+          <div class="contact">
+            <span class="name">Татьяна Иванская</span>
+            <p>Ведущая ретрита. Бронирование мест — лично.</p>
+            <p>Отвечаю в течение дня. Если вопрос срочный — звоните.</p>
+            <a class="tel" href="tel:+79069765353">+7 906 976-53-53</a><br>
+            <a class="mail" href="mailto:tivanskaya@mail.ru">tivanskaya@mail.ru</a>
           </div>
-        </aside>
+          <div class="ph">
+            <img src="photos/r/triangle.webp" alt="Практика у моря на рассвете" width="960" height="1280" loading="lazy" decoding="async">
+          </div>
+          <p class="note">Октябрь в Вардане — бархатный сезон: тёплое море, дендрарий, озёра и водопады рядом.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -554,15 +533,14 @@
   <footer class="ft">
     <span class="ft-brand">Атма Бани Каур</span>
     <span>Вардане, Сочи · 9—12 октября 2026</span>
-    <span><a href="privacy.html">Политика обработки данных</a></span>
+    <a href="privacy.html">Политика обработки данных</a>
   </footer>
 
 </main>
 
-<!-- действие 5: липкая полоса, живёт от конца первого экрана до формы -->
 <div class="bar" id="bar">
   <p><b>40 000 ₽, всё включено</b>Предоплата 7 000 ₽ бронирует номер</p>
-  <a class="btn" href="#form">Забронировать</a>
+  <a class="btn btn--light" href="#form">Забронировать</a>
 </div>
 
 <script type="application/ld+json">
@@ -609,7 +587,7 @@
     {"@type":"Question","name":"Подойдёт ли ретрит, если я никогда не занималась йогой?","acceptedAnswer":{"@type":"Answer","text":"Да. Все практики осваиваются с нуля, нагрузка подбирается под состояние. Главное — желание."}},
     {"@type":"Question","name":"Есть ли противопоказания?","acceptedAnswer":{"@type":"Answer","text":"У части практик они есть: острые состояния сердца и сосудов, недавние операции, беременность — обсуждается индивидуально. Напишите ведущей до брони, если сомневаетесь."}},
     {"@type":"Question","name":"Можно ли приехать одной?","acceptedAnswer":{"@type":"Answer","text":"Большинство участниц так и приезжает. Размещение двухместное, соседку подбирают по возрасту и режиму. Нужен отдельный номер — скажите в заявке."}},
-    {"@type":"Question","name":"Что если не смогу приехать?","acceptedAnswer":{"@type":"Answer","text":"Условия возврата и переноса предоплаты обсуждаются индивидуально. Договорённости фиксируются письменно до перевода денег."}},
+    {"@type":"Question","name":"Что если не смогу приехать?","acceptedAnswer":{"@type":"Answer","text":"Условия возврата и переноса предоплаты обсуждаются индивидуально. Договорённости фиксируются письменно до перевода средств."}},
     {"@type":"Question","name":"Это эзотерика?","acceptedAnswer":{"@type":"Answer","text":"Это телесные и дыхательные практики с понятной механикой. Медитации и беседы есть, но участие в каждой практике добровольное."}},
     {"@type":"Question","name":"Останется ли время на море?","acceptedAnswer":{"@type":"Answer","text":"Да: с обеда до пяти вечера свободно каждый день. Октябрь в Вардане — бархатный сезон, вода ещё тёплая."}}
   ]
