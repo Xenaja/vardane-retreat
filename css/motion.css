@@ -20,3 +20,50 @@
   .js-motion .rv.is-pre { opacity:1; transform:none; }
   .orb { animation:none; }
 }
+
+/* ============================================================
+   Добавлено 07.09.2026 сверх макета — по просьбе заказчицы.
+   Принципы те же: только opacity/transform, ничего не двигает
+   раскладку, всё выключается при prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- ступенчатое появление внутри сетки ----------
+   Прячется не контейнер, а его дети: карточки проявляются
+   по очереди, а не всей плитой разом. Задержки маленькие —
+   ряд из четырёх открывается за четверть секунды. */
+.rv-stg > * { transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.js-motion .rv-stg.is-pre > * { opacity:0; transform:translateY(16px); }
+.rv-stg > *:nth-child(2) { transition-delay:70ms; }
+.rv-stg > *:nth-child(3) { transition-delay:140ms; }
+.rv-stg > *:nth-child(4) { transition-delay:210ms; }
+.rv-stg > *:nth-child(5) { transition-delay:280ms; }
+.rv-stg > *:nth-child(6) { transition-delay:350ms; }
+.rv-stg > *:nth-child(7) { transition-delay:420ms; }
+.rv-stg > *:nth-child(8) { transition-delay:490ms; }
+
+/* ---------- кадр чуть приближается под курсором ----------
+   Только там, где кадр — часть галереи. Хиро и перебивки
+   не трогаем: там фото несёт композицию, а не приглашает кликнуть. */
+@media (hover:hover) {
+  .proof .ph img, .venue-photos .ph img,
+  .program-head .ph img, .form-side .ph img,
+  .author-fig .ph img, .author-quote .ph img {
+    transition:transform .7s var(--ease);
+  }
+  .proof .ph:hover img, .venue-photos .ph:hover img,
+  .program-head .ph:hover img, .form-side .ph:hover img,
+  .author-fig .ph:hover img, .author-quote .ph:hover img {
+    transform:scale(1.04);
+  }
+}
+
+/* ---------- параллакс на перебивках ----------
+   Кадр запасён по высоте (scale 1.12), чтобы сдвиг не оголял
+   края. Сам сдвиг ставит js/parallax.js. */
+.bleed { overflow:hidden; }
+.js-motion .bleed img { will-change:transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-motion .rv-stg.is-pre > * { opacity:1; transform:none; }
+  .js-motion .bleed img { transform:none !important; will-change:auto; }
+}

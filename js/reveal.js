@@ -10,7 +10,7 @@ export function initReveal() {
 
   document.documentElement.classList.add('js-motion');
 
-  const els = Array.from(document.querySelectorAll('.rv'));
+  const els = Array.from(document.querySelectorAll('.rv, .rv-stg'));
   const edge = window.innerHeight * 1.2;
   const hidden = els.filter((el) => el.getBoundingClientRect().top > edge);
   if (!hidden.length) return;
