@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /photos/pool/
 
-Sitemap: https://xenaja.github.io/vardane-retreat/sitemap.xml
+Sitemap: https://kundalini.fest-sun.ru/sitemap.xml
