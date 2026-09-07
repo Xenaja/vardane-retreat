@@ -97,26 +97,26 @@ Chrome, не Edge. Смотреть 375 / 768 / 1024 / 1440. Скрипт печ
 
 ## Деплой
 Репозиторий `Xenaja/vardane-retreat`, ветка `main`, GitHub Pages из корня.
-Живой адрес: **https://xenaja.github.io/vardane-retreat/** (Enforce HTTPS включён).
-Деплой = `./deploy.sh "сообщение"` — скрипт сначала гоняет шлюз качества, потом пушит.
+**Живой адрес: https://kundalini.fest-sun.ru** — поддомен `fest-sun.ru`, зона на reg.ru.
+Enforce HTTPS включён, старый `xenaja.github.io/vardane-retreat` отдаёт 301 на новый.
+Деплой = `./deploy.sh "сообщение"` — сначала шлюз качества, потом пуш.
 
-Свой домен на reg.ru — следующий шаг (D-01): `CNAME` в корень, четыре A-записи
-`@` → `185.199.108–111.153`, затем поправить абсолютные адреса. Их **шесть**:
-`index.html` (canonical, og:url, og:image, `url` и `image` в JSON-LD Event,
-`url` в offers), `privacy.html`, `robots.txt`, `sitemap.xml`.
+DNS: одна запись `CNAME kundalini → xenaja.github.io.` в зоне `fest-sun.ru`.
+Четыре A-записи нужны только голому домену, поддомену — нет. Записи самого
+`fest-sun.ru` (A на 185.215.4.51, MX и TXT Яндекса) относятся к другому сайту,
+их не трогаем.
 
-Форма работает: 31.08.2026 воркер научен списку разрешённых адресов
-(`ALLOW_ORIGIN = "https://moresily.ru,https://xenaja.github.io"`), сверяет `Origin`
-запроса и возвращает его эхом, отдаёт `Vary: Origin`. Заголовок сообщения в Telegram
-выбирается по префиксу задачи: `[тати]` — женский ретрит, `[сочи]` — тренинг Захаревича.
-Локальные тесты воркера — `../Zakharevith/worker/worker.test.mjs` (`node worker.test.mjs`).
+⚠️ При смене адреса править девять мест: `index.html` (canonical, og:url,
+og:image, `url` и `image` в JSON-LD Event, `url` в offers), `privacy.html`,
+`robots.txt`, `sitemap.xml` плюс файл `CNAME`. Всё это делает `./set-domain.sh <домен>`.
 
-⚠️ При переезде на свой домен его тоже нужно дописать в `ALLOW_ORIGIN` и раскатать
-воркер заново, иначе форма упрётся в CORS. Проверять только реальной отправкой
-с живой страницы: curl CORS не показывает.
+⚠️ Новый адрес обязан быть в `ALLOW_ORIGIN` воркера
+(`../Zakharevith/worker/wrangler.toml`, затем `npx wrangler deploy`).
+Сейчас там три адреса: moresily.ru, xenaja.github.io и kundalini.fest-sun.ru.
+Проверять только реальной отправкой с живой страницы — CORS виден лишь браузеру.
 
 ## TODO
-- [ ] Закрыть реестр `PENDING.md` (домен, отзывы, возврат, число мест)
+- [ ] Закрыть реестр `PENDING.md` (отзывы, возврат, число мест)
 - [x] ~~Сквозной тест формы~~ — 31.08.2026 заявка с живой страницы дошла до Telegram
       (браузер → CORS → воркер → бот). Повторить после переезда на свой домен
 - [x] ~~OG-обложка и favicon~~ — сделано 31.08.2026: `visual/og-cover.jpg` (исходник
